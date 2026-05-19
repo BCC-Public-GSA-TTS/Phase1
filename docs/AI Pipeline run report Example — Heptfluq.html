@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)https://3.212.79.241/webui/api/run/report?results_dir=%2Fapp%2Fresults_webui%2FHeptfluq -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pipeline run report — Heptfluq</title>
+    <style>
+    :root{
+      --bg: #f7f9fb;
+      --panel: #ffffff;
+      --text: #1b1b1b;
+      --muted: #4a5568;
+      --border: #dfe1e2;
+      --link: #005ea2;
+      --ok: #1f6f3a;
+      --warn: #8a5b00;
+      --bad: #a4262c;
+      --codebg: #f4f5f7;
+    }
+    html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; line-height: 1.45; }
+    .wrap{ max-width: 1100px; margin: 20px auto; padding: 0 16px; }
+    h1{ font-size: 22px; margin: 0 0 6px; }
+    h2{ font-size: 16px; margin: 18px 0 10px; }
+    .card{ background:var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+    .grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .kv{ display:flex; gap:10px; align-items:baseline; margin: 6px 0; }
+    .kv b{ min-width: 160px; color: var(--muted); font-weight: 700; }
+    a{ color: var(--link); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    code{ background: var(--codebg); border: 1px solid var(--border); border-radius: 6px; padding: 1px 6px; overflow: visible; line-height: 1.35; white-space: pre-wrap; }
+    pre{ background: var(--codebg); border: 1px solid var(--border); border-radius: 10px; padding: 10px; overflow:auto; line-height: 1.45; white-space: pre-wrap; }
+    .pill{ display:inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12px; border: 1px solid var(--border); color: var(--muted); }
+    .pill.ok{ border-color: rgba(31,111,58,.35); color: var(--ok); background: rgba(31,111,58,.06); }
+    .pill.bad{ border-color: rgba(164,38,44,.35); color: var(--bad); background: rgba(164,38,44,.06); }
+    .pill.warn{ border-color: rgba(138,91,0,.35); color: var(--warn); background: rgba(138,91,0,.06); }
+    table{ width:100%; border-collapse: collapse; }
+    th,td{ border-top: 1px solid var(--border); padding: 8px 10px; text-align:left; font-size: 13px; vertical-align: top; line-height: 1.45; }
+    th{ color: var(--muted); font-weight: 700; }
+    .small{ font-size: 12px; color: var(--muted); }
+    details{ border: 1px solid var(--border); border-radius: 12px; background: var(--panel); padding: 10px 12px; margin: 10px 0; }
+    summary{ cursor: pointer; font-weight: 800; color: var(--text); line-height: 1.4; }
+    summary .meta{ font-weight: 600; color: var(--muted); margin-left: 8px; font-size: 12px; }
+    .lineageTree{ display:flex; flex-direction:column; gap: 8px; }
+    .lineageTreeNode{ border:1px solid var(--border); border-radius: 12px; background: linear-gradient(180deg, rgba(0,94,162,.03), rgba(0,94,162,.01)); margin: 0 0 0 calc(var(--depth, 0) * 28px); padding: 0; }
+    .lineageTreeNode.current{ border-color: rgba(0,94,162,.32); background: linear-gradient(180deg, rgba(0,94,162,.06), rgba(0,94,162,.015)); }
+    .lineageTreeNode summary{ list-style:none; padding: 10px 12px; margin: 0; }
+    .lineageTreeNode summary::-webkit-details-marker{ display:none; }
+    .lineageTreeTop{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .lineageTreeBranch{ font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); white-space: pre; }
+    .lineageTreeBody{ padding: 0 12px 12px 38px; }
+    .lineageTreePath{ margin-top:6px; }
+    .lineageTreeTag{ text-transform: uppercase; letter-spacing: .35px; font-size: 11px; font-weight: 800; color: var(--muted); }
+    .lineageTreeMeta{ margin-top: 8px; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 6px 14px; }
+    .lineageTreeMetaRow{ display:flex; gap:8px; align-items:baseline; min-width:0; }
+    .lineageTreeMetaRow b{ min-width: 92px; color: var(--muted); font-size: 12px; }
+    .lineageTreeNote{ margin-top: 10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: rgba(0,94,162,.04); }
+    .lineageTreeNoteBody{ margin-top: 6px; white-space: pre-wrap; }
+    </style>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1292.0" data-gr-ext-installed="">
+    <div class="wrap">
+      <h1>Pipeline run report <span class="pill">Heptfluq</span></h1>
+      <div class="small">Generated: 2026-05-19T11:07:02.982491+00:00</div>
+
+      
+          <h2>Run lineage tree</h2>
+          <div class="card">
+            <div class="small" style="margin-bottom:10px;">
+              Parent/child chain for this run report, from the root run down to the current run.
+            </div>
+            <div class="lineageTree"><details class="lineageTreeNode current" style="--depth:0;" open=""><summary><div class="lineageTreeTop"><span class="lineageTreeBranch">ROOT</span><code>Heptfluq</code><span class="pill lineageTreeTag">root</span></div></summary><div class="lineageTreeBody"><div class="lineageTreeMeta"><div class="lineageTreeMetaRow"><b>results_dir</b><span><code>/app/results_webui/Heptfluq</code></span></div></div></div></details></div>
+          </div>
+        
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <div class="small" style="margin-bottom:6px; font-weight:900;">compute / EC2 provenance</div>
+          <div class="kv"><b>environment</b><span>test</span></div><div class="kv"><b>region</b><span>us-east-1</span></div><div class="kv"><b>availability_zone</b><span>us-east-1f</span></div><div class="kv"><b>instance_id</b><span>i-0e5eb027545ca875d</span></div><div class="kv"><b>instance_type</b><span>c6i.xlarge</span></div><div class="kv"><b>compute class</b><span>compute optimized (Intel Xeon Scalable, 3rd Gen / Ice Lake)</span></div><div class="kv"><b>cpu model</b><span>Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz</span></div><div class="kv"><b>vCPU</b><span>4</span></div><div class="kv"><b>RAM</b><span>7.6 GiB</span></div><div class="kv"><b>estimated cost</b><span>~$0.170/hr (us-east-1, on-demand estimate)</span></div>
+        </div>
+        <div class="card">
+          <div class="kv"><b>results_dir</b><span><code>/app/results_webui/Heptfluq</code></span></div>
+          <div class="kv"><b>run_id</b><span><code>Heptfluq</code></span></div>
+          <div class="kv"><b>updated_utc</b><span>2026-04-29T14:58:34Z</span></div>
+          <div class="kv"><b>completed_stages</b><span>ingest, clean, phrases, embed, dr, cluster, eval, viz</span></div>
+          <div class="kv"><b>next_stage</b><span><code></code></span></div>
+          <div style="margin-top:10px; padding-top:10px; border-top:1px solid var(--border)"><div class="kv"><b>run variable</b><span><code>Heptfluq</code></span></div><div class="kv"><b>root variable</b><span><code>Heptfluq</code></span></div><div class="kv"><b>param_sha</b><span><code>e2096765</code></span></div><div style="height:10px"></div><div class="small" style="margin-bottom:6px; font-weight:900;">Param SHA verification</div><div class="kv"><b>filename</b><span class="small">(no <code>_param_…</code> segment)</span></div><div class="kv"><b>effective config (run_manifest.config)</b><span><code>e2096765</code></span></div><div class="kv"><b>webui_merged_config.yaml</b><span><code>e2096765</code></span></div><div class="kv"><b>branch_info</b><span><span class="small">(not a branch run / missing)</span></span></div><table style="margin-top:10px"><thead><tr><th>check</th><th>result</th><th>details</th></tr></thead><tbody><tr><th>leaf filename param vs branch_info.param_sha</th><td class="small">N/A</td><td class="small">—</td></tr><tr><th>leaf filename param vs effective config (run_manifest.config)</th><td class="small">N/A</td><td class="small">—</td></tr><tr><th>leaf filename param vs webui_merged_config.yaml</th><td class="small">N/A</td><td class="small">—</td></tr><tr><th>effective config vs webui_merged_config.yaml</th><td><span class="pill ok">MATCH</span></td><td class="small"><code>e2096765</code> vs <code>e2096765</code></td></tr></tbody></table></div>
+        </div>
+        <div class="card">
+          <div class="small" style="margin-bottom:6px; font-weight:900;">apptainer: code version</div>
+          <pre style="margin:0">cde-v1.0.162
+git sha
+fd91fe873e61
+dirty
+0
+artifact hashes
+<a href="https://3.212.79.241/api/run/provenance?results_dir=%2Fapp%2Fresults_webui%2FHeptfluq&amp;path=provenance%2Fsha256_manifest.json">provenance/sha256_manifest.json</a></pre>
+        </div>
+      </div>
+
+      <h2>Run note</h2>
+      <div class="card">
+        <div class="small" style="margin-bottom:8px;">Operator note saved with this run and retained on disk until the run directory is deleted.</div>
+        <div class="kv"><b>updated_utc</b><span><span class="small">(not set)</span></span></div>
+        <div style="margin-top:10px; white-space:pre-wrap; line-height:1.5;"></div>
+      </div>
+
+      <h2>Pipeline diagram</h2>
+      <div class="card" style="padding:10px"><svg xmlns="http://www.w3.org/2000/svg" width="960" height="120" viewBox="0 0 960 120">
+<rect x="0" y="0" width="100%" height="100%" fill="#ffffff"></rect>
+<rect x="16" y="38" width="104" height="44" rx="10" fill="#E7F6EC" stroke="#1F6F3A" stroke-width="2"></rect>
+<text x="68.0" y="56" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="13" fill="#1b1b1b">Ingest</text>
+<text x="68.0" y="74" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="11" fill="#1F6F3A">completed</text>
+<line x1="120" y1="60.0" x2="130" y2="60.0" stroke="#9aa6b2" stroke-width="2"></line>
+<polygon points="130,60.0 124,56.0 124,64.0" fill="#9aa6b2"></polygon>
+<rect x="130" y="38" width="104" height="44" rx="10" fill="#E7F6EC" stroke="#1F6F3A" stroke-width="2"></rect>
+<text x="182.0" y="56" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="13" fill="#1b1b1b">Clean</text>
+<text x="182.0" y="74" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="11" fill="#1F6F3A">completed</text>
+<line x1="234" y1="60.0" x2="244" y2="60.0" stroke="#9aa6b2" stroke-width="2"></line>
+<polygon points="244,60.0 238,56.0 238,64.0" fill="#9aa6b2"></polygon>
+<rect x="244" y="38" width="104" height="44" rx="10" fill="#E7F6EC" stroke="#1F6F3A" stroke-width="2"></rect>
+<text x="296.0" y="56" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="13" fill="#1b1b1b">Phrases</text>
+<text x="296.0" y="74" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="11" fill="#1F6F3A">completed</text>
+<line x1="348" y1="60.0" x2="358" y2="60.0" stroke="#9aa6b2" stroke-width="2"></line>
+<polygon points="358,60.0 352,56.0 352,64.0" fill="#9aa6b2"></polygon>
+<rect x="358" y="38" width="104" height="44" rx="10" fill="#E7F6EC" stroke="#1F6F3A" stroke-width="2"></rect>
+<text x="410.0" y="56" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="13" fill="#1b1b1b">Embed</text>
+<text x="410.0" y="74" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="11" fill="#1F6F3A">completed</text>
+<line x1="462" y1="60.0" x2="472" y2="60.0" stroke="#9aa6b2" stroke-width="2"></line>
+<polygon points="472,60.0 466,56.0 466,64.0" fill="#9aa6b2"></polygon>
+<rect x="472" y="38" width="104" height="44" rx="10" fill="#E7F6EC" stroke="#1F6F3A" stroke-width="2"></rect>
+<text x="524.0" y="56" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="13" fill="#1b1b1b">DR</text>
+<text x="524.0" y="74" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="11" fill="#1F6F3A">completed</text>
+<line x1="576" y1="60.0" x2="586" y2="60.0" stroke="#9aa6b2" stroke-width="2"></line>
+<polygon points="586,60.0 580,56.0 580,64.0" fill="#9aa6b2"></polygon>
+<rect x="586" y="38" width="104" height="44" rx="10" fill="#E7F6EC" stroke="#1F6F3A" stroke-width="2"></rect>
+<text x="638.0" y="56" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="13" fill="#1b1b1b">Cluster</text>
+<text x="638.0" y="74" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="11" fill="#1F6F3A">completed</text>
+<line x1="690" y1="60.0" x2="700" y2="60.0" stroke="#9aa6b2" stroke-width="2"></line>
+<polygon points="700,60.0 694,56.0 694,64.0" fill="#9aa6b2"></polygon>
+<rect x="700" y="38" width="104" height="44" rx="10" fill="#E7F6EC" stroke="#1F6F3A" stroke-width="2"></rect>
+<text x="752.0" y="56" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="13" fill="#1b1b1b">Eval</text>
+<text x="752.0" y="74" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="11" fill="#1F6F3A">completed</text>
+<line x1="804" y1="60.0" x2="814" y2="60.0" stroke="#9aa6b2" stroke-width="2"></line>
+<polygon points="814,60.0 808,56.0 808,64.0" fill="#9aa6b2"></polygon>
+<rect x="814" y="38" width="104" height="44" rx="10" fill="#E7F6EC" stroke="#1F6F3A" stroke-width="2"></rect>
+<text x="866.0" y="56" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="13" fill="#1b1b1b">Viz</text>
+<text x="866.0" y="74" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="11" fill="#1F6F3A">completed</text>
+</svg></div>
+
+      <h2>Stage timings</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>stage_dir</th><th>stage_key</th><th>status</th><th>duration_seconds</th></tr></thead>
+          <tbody>
+            <tr><td><code>01_ingest</code></td><td>ingest</td><td>completed</td><td>3.2927</td></tr><tr><td><code>02_clean</code></td><td>clean</td><td>completed</td><td>29.8489</td></tr><tr><td><code>03_phrases</code></td><td>phrases</td><td>completed</td><td>50.1705</td></tr><tr><td><code>04_embed</code></td><td>embed</td><td>completed</td><td>955.053</td></tr><tr><td><code>05_dr</code></td><td>dr</td><td>completed</td><td>62.4651</td></tr><tr><td><code>06_cluster</code></td><td>cluster</td><td>completed</td><td>13.1553</td></tr><tr><td><code>07_eval</code></td><td>eval</td><td>completed</td><td>1.0937</td></tr><tr><td><code>08_viz</code></td><td>viz</td><td>completed</td><td>43.9591</td></tr>
+            <tr><td colspan="3"><b>Total</b></td><td><b>1159.04</b> <span class="small">(00:19:19)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Stage variables (config)</h2>
+      <div class="card">
+        <div class="small" style="margin-bottom:8px;">
+          Values are pulled from <code>webui_merged_config.yaml</code> captured in the run folder (base + overrides as executed).
+        </div>
+        <details><summary>Stage 01_ingest (ingest)<span class="meta">data, evaluation</span></summary><div style="margin-top:10px"><div class="small" style="margin-bottom:8px; opacity:0.85;">Stage-related sections: <code>data, evaluation</code></div><div class="small" style="margin-bottom:8px; opacity:0.85;">Artifact source run variable: <code>Heptfluq</code></div><table><tbody><tr><th style="width:340px"><code>data.format</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>data.input_path</code></th><td><code>raw/2025-09-18/all_cdes.json</code></td></tr><tr><th style="width:340px"><code>data.provider</code></th><td><code>local</code></td></tr><tr><th style="width:340px"><code>data.selection.mode</code></th><td><code>full_corpus</code></td></tr><tr><th style="width:340px"><code>data.selection.require_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>data.selection.seed</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>data.selection.strategy</code></th><td><code>proportional_per_domain</code></td></tr><tr><th style="width:340px"><code>data.selection.target_n</code></th><td><code>1200</code></td></tr><tr><th style="width:340px"><code>data.validate</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.beta</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_external</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_internal</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.external_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>evaluation.filter_by_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>evaluation.ground_truth_path</code></th><td><code>ground-truth/v2/curated_11domains_mapping.csv</code></td></tr></tbody></table><details style="margin-top:12px;"><summary>All parameters (full merged config snapshot)</summary><div style="margin-top:10px"><table><tbody><tr><th style="width:340px"><code>analysis.llm_config.api_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.model</code></th><td><code>gpt-4o-mini</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.provider</code></th><td><code>openai</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.text_source</code></th><td><code>phrase_filtered</code></td></tr><tr><th style="width:340px"><code>analysis.llm_redundancy</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.colnames</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.tables</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html.use_optimized</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.lowercase</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.normalize_whitespace</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.remove_html</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.text_columns</code></th><td><code>[
+  "Name",
+  "Question",
+  "Definition"
+]</code></td></tr><tr><th style="width:340px"><code>clustering.algorithm</code></th><td><code>hdbscan</code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.allow_single_cluster</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.alpha</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.approx_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_epsilon</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_method</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.core_dist_n_jobs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.gen_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.prediction_data</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_clusters</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_init</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>clustering.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>clustering.min_cluster_size</code></th><td><code>15</code></td></tr><tr><th style="width:340px"><code>clustering.min_samples</code></th><td><code>5</code></td></tr><tr><th style="width:340px"><code>clustering.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>data.format</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>data.input_path</code></th><td><code>raw/2025-09-18/all_cdes.json</code></td></tr><tr><th style="width:340px"><code>data.provider</code></th><td><code>local</code></td></tr><tr><th style="width:340px"><code>data.selection.mode</code></th><td><code>full_corpus</code></td></tr><tr><th style="width:340px"><code>data.selection.require_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>data.selection.seed</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>data.selection.strategy</code></th><td><code>proportional_per_domain</code></td></tr><tr><th style="width:340px"><code>data.selection.target_n</code></th><td><code>1200</code></td></tr><tr><th style="width:340px"><code>data.validate</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>dr.method</code></th><td><code>umap</code></td></tr><tr><th style="width:340px"><code>dr.n_components</code></th><td><code>50</code></td></tr><tr><th style="width:340px"><code>dr.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>dr.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>dr.tsne.allow_large_exact</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>dr.tsne.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.max_samples_exact</code></th><td><code>5000</code></td></tr><tr><th style="width:340px"><code>dr.tsne.n_iter</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.perplexity</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>dr.umap.min_dist</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_epochs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_neighbors</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.spread</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.batch_size</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.device</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.method</code></th><td><code>generate</code></td></tr><tr><th style="width:340px"><code>embedding.model</code></th><td><code>medcpt</code></td></tr><tr><th style="width:340px"><code>embedding.path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.show_progress</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.beta</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_external</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_internal</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.external_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>evaluation.filter_by_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>evaluation.ground_truth_path</code></th><td><code>ground-truth/v2/curated_11domains_mapping.csv</code></td></tr><tr><th style="width:340px"><code>logging.file</code></th><td><code>./logs/pipeline.log</code></td></tr><tr><th style="width:340px"><code>logging.level</code></th><td><code>INFO</code></td></tr><tr><th style="width:340px"><code>output.export_formats</code></th><td><code>[
+  "csv",
+  "json"
+]</code></td></tr><tr><th style="width:340px"><code>output.figures_dir</code></th><td><code>./results/figures</code></td></tr><tr><th style="width:340px"><code>output.results_dir</code></th><td><code>/app/results_webui/Heptfluq</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.case_sensitive</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.enabled</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.min_verbatim_count</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.nuisance_phrases</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.run_golden_parity_check</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_file</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_xlsx_path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.text_column</code></th><td><code>combined_text</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_optimized</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_verbatim_phrases</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_create_structure</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_upload</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.aws_access_key_id</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_secret_access_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_session_token</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.bucket_name</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.enabled</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.prefix</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.region</code></th><td><code>us-east-1</code></td></tr><tr><th style="width:340px"><code>visualization.provider</code></th><td><code>boyan</code></td></tr></tbody></table></div></details></div></details><details><summary>Stage 02_clean (clean)<span class="meta">cleaning</span></summary><div style="margin-top:10px"><div class="small" style="margin-bottom:8px; opacity:0.85;">Stage-related sections: <code>cleaning</code></div><div class="small" style="margin-bottom:8px; opacity:0.85;">Artifact source run variable: <code>Heptfluq</code></div><table><tbody><tr><th style="width:340px"><code>cleaning.html.colnames</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.tables</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html.use_optimized</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.lowercase</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.normalize_whitespace</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.remove_html</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.text_columns</code></th><td><code>[
+  "Name",
+  "Question",
+  "Definition"
+]</code></td></tr></tbody></table><details style="margin-top:12px;"><summary>All parameters (full merged config snapshot)</summary><div style="margin-top:10px"><table><tbody><tr><th style="width:340px"><code>analysis.llm_config.api_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.model</code></th><td><code>gpt-4o-mini</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.provider</code></th><td><code>openai</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.text_source</code></th><td><code>phrase_filtered</code></td></tr><tr><th style="width:340px"><code>analysis.llm_redundancy</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.colnames</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.tables</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html.use_optimized</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.lowercase</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.normalize_whitespace</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.remove_html</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.text_columns</code></th><td><code>[
+  "Name",
+  "Question",
+  "Definition"
+]</code></td></tr><tr><th style="width:340px"><code>clustering.algorithm</code></th><td><code>hdbscan</code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.allow_single_cluster</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.alpha</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.approx_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_epsilon</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_method</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.core_dist_n_jobs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.gen_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.prediction_data</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_clusters</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_init</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>clustering.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>clustering.min_cluster_size</code></th><td><code>15</code></td></tr><tr><th style="width:340px"><code>clustering.min_samples</code></th><td><code>5</code></td></tr><tr><th style="width:340px"><code>clustering.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>data.format</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>data.input_path</code></th><td><code>raw/2025-09-18/all_cdes.json</code></td></tr><tr><th style="width:340px"><code>data.provider</code></th><td><code>local</code></td></tr><tr><th style="width:340px"><code>data.selection.mode</code></th><td><code>full_corpus</code></td></tr><tr><th style="width:340px"><code>data.selection.require_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>data.selection.seed</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>data.selection.strategy</code></th><td><code>proportional_per_domain</code></td></tr><tr><th style="width:340px"><code>data.selection.target_n</code></th><td><code>1200</code></td></tr><tr><th style="width:340px"><code>data.validate</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>dr.method</code></th><td><code>umap</code></td></tr><tr><th style="width:340px"><code>dr.n_components</code></th><td><code>50</code></td></tr><tr><th style="width:340px"><code>dr.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>dr.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>dr.tsne.allow_large_exact</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>dr.tsne.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.max_samples_exact</code></th><td><code>5000</code></td></tr><tr><th style="width:340px"><code>dr.tsne.n_iter</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.perplexity</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>dr.umap.min_dist</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_epochs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_neighbors</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.spread</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.batch_size</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.device</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.method</code></th><td><code>generate</code></td></tr><tr><th style="width:340px"><code>embedding.model</code></th><td><code>medcpt</code></td></tr><tr><th style="width:340px"><code>embedding.path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.show_progress</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.beta</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_external</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_internal</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.external_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>evaluation.filter_by_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>evaluation.ground_truth_path</code></th><td><code>ground-truth/v2/curated_11domains_mapping.csv</code></td></tr><tr><th style="width:340px"><code>logging.file</code></th><td><code>./logs/pipeline.log</code></td></tr><tr><th style="width:340px"><code>logging.level</code></th><td><code>INFO</code></td></tr><tr><th style="width:340px"><code>output.export_formats</code></th><td><code>[
+  "csv",
+  "json"
+]</code></td></tr><tr><th style="width:340px"><code>output.figures_dir</code></th><td><code>./results/figures</code></td></tr><tr><th style="width:340px"><code>output.results_dir</code></th><td><code>/app/results_webui/Heptfluq</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.case_sensitive</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.enabled</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.min_verbatim_count</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.nuisance_phrases</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.run_golden_parity_check</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_file</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_xlsx_path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.text_column</code></th><td><code>combined_text</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_optimized</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_verbatim_phrases</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_create_structure</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_upload</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.aws_access_key_id</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_secret_access_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_session_token</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.bucket_name</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.enabled</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.prefix</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.region</code></th><td><code>us-east-1</code></td></tr><tr><th style="width:340px"><code>visualization.provider</code></th><td><code>boyan</code></td></tr></tbody></table></div></details></div></details><details><summary>Stage 03_phrases (phrases)<span class="meta">phrase_filtering</span></summary><div style="margin-top:10px"><div class="small" style="margin-bottom:8px; opacity:0.85;">Stage-related sections: <code>phrase_filtering</code></div><div class="small" style="margin-bottom:8px; opacity:0.85;">Artifact source run variable: <code>Heptfluq</code></div><table><tbody><tr><th style="width:340px"><code>phrase_filtering.case_sensitive</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.enabled</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.min_verbatim_count</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.nuisance_phrases</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.run_golden_parity_check</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_file</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_xlsx_path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.text_column</code></th><td><code>combined_text</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_optimized</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_verbatim_phrases</code></th><td><code>True</code></td></tr></tbody></table><details style="margin-top:12px;"><summary>All parameters (full merged config snapshot)</summary><div style="margin-top:10px"><table><tbody><tr><th style="width:340px"><code>analysis.llm_config.api_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.model</code></th><td><code>gpt-4o-mini</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.provider</code></th><td><code>openai</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.text_source</code></th><td><code>phrase_filtered</code></td></tr><tr><th style="width:340px"><code>analysis.llm_redundancy</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.colnames</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.tables</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html.use_optimized</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.lowercase</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.normalize_whitespace</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.remove_html</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.text_columns</code></th><td><code>[
+  "Name",
+  "Question",
+  "Definition"
+]</code></td></tr><tr><th style="width:340px"><code>clustering.algorithm</code></th><td><code>hdbscan</code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.allow_single_cluster</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.alpha</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.approx_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_epsilon</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_method</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.core_dist_n_jobs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.gen_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.prediction_data</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_clusters</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_init</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>clustering.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>clustering.min_cluster_size</code></th><td><code>15</code></td></tr><tr><th style="width:340px"><code>clustering.min_samples</code></th><td><code>5</code></td></tr><tr><th style="width:340px"><code>clustering.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>data.format</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>data.input_path</code></th><td><code>raw/2025-09-18/all_cdes.json</code></td></tr><tr><th style="width:340px"><code>data.provider</code></th><td><code>local</code></td></tr><tr><th style="width:340px"><code>data.selection.mode</code></th><td><code>full_corpus</code></td></tr><tr><th style="width:340px"><code>data.selection.require_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>data.selection.seed</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>data.selection.strategy</code></th><td><code>proportional_per_domain</code></td></tr><tr><th style="width:340px"><code>data.selection.target_n</code></th><td><code>1200</code></td></tr><tr><th style="width:340px"><code>data.validate</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>dr.method</code></th><td><code>umap</code></td></tr><tr><th style="width:340px"><code>dr.n_components</code></th><td><code>50</code></td></tr><tr><th style="width:340px"><code>dr.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>dr.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>dr.tsne.allow_large_exact</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>dr.tsne.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.max_samples_exact</code></th><td><code>5000</code></td></tr><tr><th style="width:340px"><code>dr.tsne.n_iter</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.perplexity</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>dr.umap.min_dist</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_epochs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_neighbors</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.spread</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.batch_size</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.device</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.method</code></th><td><code>generate</code></td></tr><tr><th style="width:340px"><code>embedding.model</code></th><td><code>medcpt</code></td></tr><tr><th style="width:340px"><code>embedding.path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.show_progress</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.beta</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_external</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_internal</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.external_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>evaluation.filter_by_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>evaluation.ground_truth_path</code></th><td><code>ground-truth/v2/curated_11domains_mapping.csv</code></td></tr><tr><th style="width:340px"><code>logging.file</code></th><td><code>./logs/pipeline.log</code></td></tr><tr><th style="width:340px"><code>logging.level</code></th><td><code>INFO</code></td></tr><tr><th style="width:340px"><code>output.export_formats</code></th><td><code>[
+  "csv",
+  "json"
+]</code></td></tr><tr><th style="width:340px"><code>output.figures_dir</code></th><td><code>./results/figures</code></td></tr><tr><th style="width:340px"><code>output.results_dir</code></th><td><code>/app/results_webui/Heptfluq</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.case_sensitive</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.enabled</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.min_verbatim_count</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.nuisance_phrases</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.run_golden_parity_check</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_file</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_xlsx_path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.text_column</code></th><td><code>combined_text</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_optimized</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_verbatim_phrases</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_create_structure</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_upload</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.aws_access_key_id</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_secret_access_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_session_token</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.bucket_name</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.enabled</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.prefix</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.region</code></th><td><code>us-east-1</code></td></tr><tr><th style="width:340px"><code>visualization.provider</code></th><td><code>boyan</code></td></tr></tbody></table></div></details></div></details><details><summary>Stage 04_embed (embed)<span class="meta">embedding</span></summary><div style="margin-top:10px"><div class="small" style="margin-bottom:8px; opacity:0.85;">Stage-related sections: <code>embedding</code></div><div class="small" style="margin-bottom:8px; opacity:0.85;">Artifact source run variable: <code>Heptfluq</code></div><table><tbody><tr><th style="width:340px"><code>embedding.batch_size</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.device</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.method</code></th><td><code>generate</code></td></tr><tr><th style="width:340px"><code>embedding.model</code></th><td><code>medcpt</code></td></tr><tr><th style="width:340px"><code>embedding.path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.show_progress</code></th><td><code>True</code></td></tr></tbody></table><details style="margin-top:12px;"><summary>All parameters (full merged config snapshot)</summary><div style="margin-top:10px"><table><tbody><tr><th style="width:340px"><code>analysis.llm_config.api_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.model</code></th><td><code>gpt-4o-mini</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.provider</code></th><td><code>openai</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.text_source</code></th><td><code>phrase_filtered</code></td></tr><tr><th style="width:340px"><code>analysis.llm_redundancy</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.colnames</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.tables</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html.use_optimized</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.lowercase</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.normalize_whitespace</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.remove_html</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.text_columns</code></th><td><code>[
+  "Name",
+  "Question",
+  "Definition"
+]</code></td></tr><tr><th style="width:340px"><code>clustering.algorithm</code></th><td><code>hdbscan</code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.allow_single_cluster</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.alpha</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.approx_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_epsilon</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_method</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.core_dist_n_jobs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.gen_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.prediction_data</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_clusters</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_init</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>clustering.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>clustering.min_cluster_size</code></th><td><code>15</code></td></tr><tr><th style="width:340px"><code>clustering.min_samples</code></th><td><code>5</code></td></tr><tr><th style="width:340px"><code>clustering.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>data.format</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>data.input_path</code></th><td><code>raw/2025-09-18/all_cdes.json</code></td></tr><tr><th style="width:340px"><code>data.provider</code></th><td><code>local</code></td></tr><tr><th style="width:340px"><code>data.selection.mode</code></th><td><code>full_corpus</code></td></tr><tr><th style="width:340px"><code>data.selection.require_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>data.selection.seed</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>data.selection.strategy</code></th><td><code>proportional_per_domain</code></td></tr><tr><th style="width:340px"><code>data.selection.target_n</code></th><td><code>1200</code></td></tr><tr><th style="width:340px"><code>data.validate</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>dr.method</code></th><td><code>umap</code></td></tr><tr><th style="width:340px"><code>dr.n_components</code></th><td><code>50</code></td></tr><tr><th style="width:340px"><code>dr.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>dr.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>dr.tsne.allow_large_exact</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>dr.tsne.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.max_samples_exact</code></th><td><code>5000</code></td></tr><tr><th style="width:340px"><code>dr.tsne.n_iter</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.perplexity</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>dr.umap.min_dist</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_epochs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_neighbors</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.spread</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.batch_size</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.device</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.method</code></th><td><code>generate</code></td></tr><tr><th style="width:340px"><code>embedding.model</code></th><td><code>medcpt</code></td></tr><tr><th style="width:340px"><code>embedding.path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.show_progress</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.beta</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_external</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_internal</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.external_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>evaluation.filter_by_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>evaluation.ground_truth_path</code></th><td><code>ground-truth/v2/curated_11domains_mapping.csv</code></td></tr><tr><th style="width:340px"><code>logging.file</code></th><td><code>./logs/pipeline.log</code></td></tr><tr><th style="width:340px"><code>logging.level</code></th><td><code>INFO</code></td></tr><tr><th style="width:340px"><code>output.export_formats</code></th><td><code>[
+  "csv",
+  "json"
+]</code></td></tr><tr><th style="width:340px"><code>output.figures_dir</code></th><td><code>./results/figures</code></td></tr><tr><th style="width:340px"><code>output.results_dir</code></th><td><code>/app/results_webui/Heptfluq</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.case_sensitive</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.enabled</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.min_verbatim_count</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.nuisance_phrases</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.run_golden_parity_check</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_file</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_xlsx_path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.text_column</code></th><td><code>combined_text</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_optimized</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_verbatim_phrases</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_create_structure</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_upload</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.aws_access_key_id</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_secret_access_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_session_token</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.bucket_name</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.enabled</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.prefix</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.region</code></th><td><code>us-east-1</code></td></tr><tr><th style="width:340px"><code>visualization.provider</code></th><td><code>boyan</code></td></tr></tbody></table></div></details></div></details><details><summary>Stage 05_dr (dr)<span class="meta">dr</span></summary><div style="margin-top:10px"><div class="small" style="margin-bottom:8px; opacity:0.85;">Stage-related sections: <code>dr</code></div><div class="small" style="margin-bottom:8px; opacity:0.85;">Artifact source run variable: <code>Heptfluq</code></div><table><tbody><tr><th style="width:340px"><code>dr.method</code></th><td><code>umap</code></td></tr><tr><th style="width:340px"><code>dr.n_components</code></th><td><code>50</code></td></tr><tr><th style="width:340px"><code>dr.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>dr.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>dr.tsne.allow_large_exact</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>dr.tsne.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.max_samples_exact</code></th><td><code>5000</code></td></tr><tr><th style="width:340px"><code>dr.tsne.n_iter</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.perplexity</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>dr.umap.min_dist</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_epochs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_neighbors</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.spread</code></th><td><code></code></td></tr></tbody></table><details style="margin-top:12px;"><summary>All parameters (full merged config snapshot)</summary><div style="margin-top:10px"><table><tbody><tr><th style="width:340px"><code>analysis.llm_config.api_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.model</code></th><td><code>gpt-4o-mini</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.provider</code></th><td><code>openai</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.text_source</code></th><td><code>phrase_filtered</code></td></tr><tr><th style="width:340px"><code>analysis.llm_redundancy</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.colnames</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.tables</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html.use_optimized</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.lowercase</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.normalize_whitespace</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.remove_html</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.text_columns</code></th><td><code>[
+  "Name",
+  "Question",
+  "Definition"
+]</code></td></tr><tr><th style="width:340px"><code>clustering.algorithm</code></th><td><code>hdbscan</code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.allow_single_cluster</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.alpha</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.approx_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_epsilon</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_method</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.core_dist_n_jobs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.gen_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.prediction_data</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_clusters</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_init</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>clustering.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>clustering.min_cluster_size</code></th><td><code>15</code></td></tr><tr><th style="width:340px"><code>clustering.min_samples</code></th><td><code>5</code></td></tr><tr><th style="width:340px"><code>clustering.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>data.format</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>data.input_path</code></th><td><code>raw/2025-09-18/all_cdes.json</code></td></tr><tr><th style="width:340px"><code>data.provider</code></th><td><code>local</code></td></tr><tr><th style="width:340px"><code>data.selection.mode</code></th><td><code>full_corpus</code></td></tr><tr><th style="width:340px"><code>data.selection.require_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>data.selection.seed</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>data.selection.strategy</code></th><td><code>proportional_per_domain</code></td></tr><tr><th style="width:340px"><code>data.selection.target_n</code></th><td><code>1200</code></td></tr><tr><th style="width:340px"><code>data.validate</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>dr.method</code></th><td><code>umap</code></td></tr><tr><th style="width:340px"><code>dr.n_components</code></th><td><code>50</code></td></tr><tr><th style="width:340px"><code>dr.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>dr.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>dr.tsne.allow_large_exact</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>dr.tsne.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.max_samples_exact</code></th><td><code>5000</code></td></tr><tr><th style="width:340px"><code>dr.tsne.n_iter</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.perplexity</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>dr.umap.min_dist</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_epochs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_neighbors</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.spread</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.batch_size</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.device</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.method</code></th><td><code>generate</code></td></tr><tr><th style="width:340px"><code>embedding.model</code></th><td><code>medcpt</code></td></tr><tr><th style="width:340px"><code>embedding.path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.show_progress</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.beta</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_external</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_internal</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.external_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>evaluation.filter_by_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>evaluation.ground_truth_path</code></th><td><code>ground-truth/v2/curated_11domains_mapping.csv</code></td></tr><tr><th style="width:340px"><code>logging.file</code></th><td><code>./logs/pipeline.log</code></td></tr><tr><th style="width:340px"><code>logging.level</code></th><td><code>INFO</code></td></tr><tr><th style="width:340px"><code>output.export_formats</code></th><td><code>[
+  "csv",
+  "json"
+]</code></td></tr><tr><th style="width:340px"><code>output.figures_dir</code></th><td><code>./results/figures</code></td></tr><tr><th style="width:340px"><code>output.results_dir</code></th><td><code>/app/results_webui/Heptfluq</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.case_sensitive</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.enabled</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.min_verbatim_count</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.nuisance_phrases</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.run_golden_parity_check</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_file</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_xlsx_path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.text_column</code></th><td><code>combined_text</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_optimized</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_verbatim_phrases</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_create_structure</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_upload</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.aws_access_key_id</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_secret_access_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_session_token</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.bucket_name</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.enabled</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.prefix</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.region</code></th><td><code>us-east-1</code></td></tr><tr><th style="width:340px"><code>visualization.provider</code></th><td><code>boyan</code></td></tr></tbody></table></div></details></div></details><details><summary>Stage 06_cluster (cluster)<span class="meta">clustering</span></summary><div style="margin-top:10px"><div class="small" style="margin-bottom:8px; opacity:0.85;">Stage-related sections: <code>clustering</code></div><div class="small" style="margin-bottom:8px; opacity:0.85;">Artifact source run variable: <code>Heptfluq</code></div><table><tbody><tr><th style="width:340px"><code>clustering.algorithm</code></th><td><code>hdbscan</code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.allow_single_cluster</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.alpha</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.approx_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_epsilon</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_method</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.core_dist_n_jobs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.gen_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.prediction_data</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_clusters</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_init</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>clustering.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>clustering.min_cluster_size</code></th><td><code>15</code></td></tr><tr><th style="width:340px"><code>clustering.min_samples</code></th><td><code>5</code></td></tr><tr><th style="width:340px"><code>clustering.provider</code></th><td><code>boyan</code></td></tr></tbody></table><details style="margin-top:12px;"><summary>All parameters (full merged config snapshot)</summary><div style="margin-top:10px"><table><tbody><tr><th style="width:340px"><code>analysis.llm_config.api_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.model</code></th><td><code>gpt-4o-mini</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.provider</code></th><td><code>openai</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.text_source</code></th><td><code>phrase_filtered</code></td></tr><tr><th style="width:340px"><code>analysis.llm_redundancy</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.colnames</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.tables</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html.use_optimized</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.lowercase</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.normalize_whitespace</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.remove_html</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.text_columns</code></th><td><code>[
+  "Name",
+  "Question",
+  "Definition"
+]</code></td></tr><tr><th style="width:340px"><code>clustering.algorithm</code></th><td><code>hdbscan</code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.allow_single_cluster</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.alpha</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.approx_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_epsilon</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_method</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.core_dist_n_jobs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.gen_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.prediction_data</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_clusters</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_init</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>clustering.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>clustering.min_cluster_size</code></th><td><code>15</code></td></tr><tr><th style="width:340px"><code>clustering.min_samples</code></th><td><code>5</code></td></tr><tr><th style="width:340px"><code>clustering.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>data.format</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>data.input_path</code></th><td><code>raw/2025-09-18/all_cdes.json</code></td></tr><tr><th style="width:340px"><code>data.provider</code></th><td><code>local</code></td></tr><tr><th style="width:340px"><code>data.selection.mode</code></th><td><code>full_corpus</code></td></tr><tr><th style="width:340px"><code>data.selection.require_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>data.selection.seed</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>data.selection.strategy</code></th><td><code>proportional_per_domain</code></td></tr><tr><th style="width:340px"><code>data.selection.target_n</code></th><td><code>1200</code></td></tr><tr><th style="width:340px"><code>data.validate</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>dr.method</code></th><td><code>umap</code></td></tr><tr><th style="width:340px"><code>dr.n_components</code></th><td><code>50</code></td></tr><tr><th style="width:340px"><code>dr.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>dr.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>dr.tsne.allow_large_exact</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>dr.tsne.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.max_samples_exact</code></th><td><code>5000</code></td></tr><tr><th style="width:340px"><code>dr.tsne.n_iter</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.perplexity</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>dr.umap.min_dist</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_epochs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_neighbors</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.spread</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.batch_size</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.device</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.method</code></th><td><code>generate</code></td></tr><tr><th style="width:340px"><code>embedding.model</code></th><td><code>medcpt</code></td></tr><tr><th style="width:340px"><code>embedding.path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.show_progress</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.beta</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_external</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_internal</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.external_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>evaluation.filter_by_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>evaluation.ground_truth_path</code></th><td><code>ground-truth/v2/curated_11domains_mapping.csv</code></td></tr><tr><th style="width:340px"><code>logging.file</code></th><td><code>./logs/pipeline.log</code></td></tr><tr><th style="width:340px"><code>logging.level</code></th><td><code>INFO</code></td></tr><tr><th style="width:340px"><code>output.export_formats</code></th><td><code>[
+  "csv",
+  "json"
+]</code></td></tr><tr><th style="width:340px"><code>output.figures_dir</code></th><td><code>./results/figures</code></td></tr><tr><th style="width:340px"><code>output.results_dir</code></th><td><code>/app/results_webui/Heptfluq</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.case_sensitive</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.enabled</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.min_verbatim_count</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.nuisance_phrases</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.run_golden_parity_check</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_file</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_xlsx_path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.text_column</code></th><td><code>combined_text</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_optimized</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_verbatim_phrases</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_create_structure</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_upload</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.aws_access_key_id</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_secret_access_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_session_token</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.bucket_name</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.enabled</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.prefix</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.region</code></th><td><code>us-east-1</code></td></tr><tr><th style="width:340px"><code>visualization.provider</code></th><td><code>boyan</code></td></tr></tbody></table></div></details></div></details><details><summary>Stage 07_eval (eval)<span class="meta">evaluation</span></summary><div style="margin-top:10px"><div class="small" style="margin-bottom:8px; opacity:0.85;">Stage-related sections: <code>evaluation</code></div><div class="small" style="margin-bottom:8px; opacity:0.85;">Artifact source run variable: <code>Heptfluq</code></div><table><tbody><tr><th style="width:340px"><code>evaluation.beta</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_external</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_internal</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.external_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>evaluation.filter_by_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>evaluation.ground_truth_path</code></th><td><code>ground-truth/v2/curated_11domains_mapping.csv</code></td></tr></tbody></table><details style="margin-top:12px;"><summary>All parameters (full merged config snapshot)</summary><div style="margin-top:10px"><table><tbody><tr><th style="width:340px"><code>analysis.llm_config.api_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.model</code></th><td><code>gpt-4o-mini</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.provider</code></th><td><code>openai</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.text_source</code></th><td><code>phrase_filtered</code></td></tr><tr><th style="width:340px"><code>analysis.llm_redundancy</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.colnames</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.tables</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html.use_optimized</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.lowercase</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.normalize_whitespace</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.remove_html</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.text_columns</code></th><td><code>[
+  "Name",
+  "Question",
+  "Definition"
+]</code></td></tr><tr><th style="width:340px"><code>clustering.algorithm</code></th><td><code>hdbscan</code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.allow_single_cluster</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.alpha</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.approx_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_epsilon</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_method</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.core_dist_n_jobs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.gen_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.prediction_data</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_clusters</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_init</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>clustering.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>clustering.min_cluster_size</code></th><td><code>15</code></td></tr><tr><th style="width:340px"><code>clustering.min_samples</code></th><td><code>5</code></td></tr><tr><th style="width:340px"><code>clustering.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>data.format</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>data.input_path</code></th><td><code>raw/2025-09-18/all_cdes.json</code></td></tr><tr><th style="width:340px"><code>data.provider</code></th><td><code>local</code></td></tr><tr><th style="width:340px"><code>data.selection.mode</code></th><td><code>full_corpus</code></td></tr><tr><th style="width:340px"><code>data.selection.require_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>data.selection.seed</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>data.selection.strategy</code></th><td><code>proportional_per_domain</code></td></tr><tr><th style="width:340px"><code>data.selection.target_n</code></th><td><code>1200</code></td></tr><tr><th style="width:340px"><code>data.validate</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>dr.method</code></th><td><code>umap</code></td></tr><tr><th style="width:340px"><code>dr.n_components</code></th><td><code>50</code></td></tr><tr><th style="width:340px"><code>dr.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>dr.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>dr.tsne.allow_large_exact</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>dr.tsne.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.max_samples_exact</code></th><td><code>5000</code></td></tr><tr><th style="width:340px"><code>dr.tsne.n_iter</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.perplexity</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>dr.umap.min_dist</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_epochs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_neighbors</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.spread</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.batch_size</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.device</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.method</code></th><td><code>generate</code></td></tr><tr><th style="width:340px"><code>embedding.model</code></th><td><code>medcpt</code></td></tr><tr><th style="width:340px"><code>embedding.path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.show_progress</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.beta</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_external</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_internal</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.external_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>evaluation.filter_by_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>evaluation.ground_truth_path</code></th><td><code>ground-truth/v2/curated_11domains_mapping.csv</code></td></tr><tr><th style="width:340px"><code>logging.file</code></th><td><code>./logs/pipeline.log</code></td></tr><tr><th style="width:340px"><code>logging.level</code></th><td><code>INFO</code></td></tr><tr><th style="width:340px"><code>output.export_formats</code></th><td><code>[
+  "csv",
+  "json"
+]</code></td></tr><tr><th style="width:340px"><code>output.figures_dir</code></th><td><code>./results/figures</code></td></tr><tr><th style="width:340px"><code>output.results_dir</code></th><td><code>/app/results_webui/Heptfluq</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.case_sensitive</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.enabled</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.min_verbatim_count</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.nuisance_phrases</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.run_golden_parity_check</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_file</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_xlsx_path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.text_column</code></th><td><code>combined_text</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_optimized</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_verbatim_phrases</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_create_structure</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_upload</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.aws_access_key_id</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_secret_access_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_session_token</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.bucket_name</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.enabled</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.prefix</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.region</code></th><td><code>us-east-1</code></td></tr><tr><th style="width:340px"><code>visualization.provider</code></th><td><code>boyan</code></td></tr></tbody></table></div></details></div></details><details><summary>Stage 08_viz (viz)<span class="meta">output, visualization</span></summary><div style="margin-top:10px"><div class="small" style="margin-bottom:8px; opacity:0.85;">Stage-related sections: <code>output, visualization</code></div><div class="small" style="margin-bottom:8px; opacity:0.85;">Artifact source run variable: <code>Heptfluq</code></div><table><tbody><tr><th style="width:340px"><code>output.export_formats</code></th><td><code>[
+  "csv",
+  "json"
+]</code></td></tr><tr><th style="width:340px"><code>output.figures_dir</code></th><td><code>./results/figures</code></td></tr><tr><th style="width:340px"><code>output.results_dir</code></th><td><code>/app/results_webui/Heptfluq</code></td></tr><tr><th style="width:340px"><code>visualization.provider</code></th><td><code>boyan</code></td></tr></tbody></table><details style="margin-top:12px;"><summary>All parameters (full merged config snapshot)</summary><div style="margin-top:10px"><table><tbody><tr><th style="width:340px"><code>analysis.llm_config.api_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.model</code></th><td><code>gpt-4o-mini</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.provider</code></th><td><code>openai</code></td></tr><tr><th style="width:340px"><code>analysis.llm_config.text_source</code></th><td><code>phrase_filtered</code></td></tr><tr><th style="width:340px"><code>analysis.llm_redundancy</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.colnames</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>cleaning.html.tables</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html.use_optimized</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.html_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.lowercase</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.normalize_whitespace</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>cleaning.remove_html</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>cleaning.text_columns</code></th><td><code>[
+  "Name",
+  "Question",
+  "Definition"
+]</code></td></tr><tr><th style="width:340px"><code>clustering.algorithm</code></th><td><code>hdbscan</code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.allow_single_cluster</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.alpha</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.approx_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_epsilon</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.cluster_selection_method</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.core_dist_n_jobs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.gen_min_span_tree</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.hdbscan.prediction_data</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_clusters</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.n_init</code></th><td><code>10</code></td></tr><tr><th style="width:340px"><code>clustering.kmeans.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>clustering.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>clustering.min_cluster_size</code></th><td><code>15</code></td></tr><tr><th style="width:340px"><code>clustering.min_samples</code></th><td><code>5</code></td></tr><tr><th style="width:340px"><code>clustering.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>data.format</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>data.input_path</code></th><td><code>raw/2025-09-18/all_cdes.json</code></td></tr><tr><th style="width:340px"><code>data.provider</code></th><td><code>local</code></td></tr><tr><th style="width:340px"><code>data.selection.mode</code></th><td><code>full_corpus</code></td></tr><tr><th style="width:340px"><code>data.selection.require_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>data.selection.seed</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>data.selection.strategy</code></th><td><code>proportional_per_domain</code></td></tr><tr><th style="width:340px"><code>data.selection.target_n</code></th><td><code>1200</code></td></tr><tr><th style="width:340px"><code>data.validate</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>dr.method</code></th><td><code>umap</code></td></tr><tr><th style="width:340px"><code>dr.n_components</code></th><td><code>50</code></td></tr><tr><th style="width:340px"><code>dr.provider</code></th><td><code>boyan</code></td></tr><tr><th style="width:340px"><code>dr.random_state</code></th><td><code>42</code></td></tr><tr><th style="width:340px"><code>dr.tsne.allow_large_exact</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>dr.tsne.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.max_samples_exact</code></th><td><code>5000</code></td></tr><tr><th style="width:340px"><code>dr.tsne.n_iter</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.tsne.perplexity</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.init</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.learning_rate</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.metric</code></th><td><code>cosine</code></td></tr><tr><th style="width:340px"><code>dr.umap.min_dist</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_epochs</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.n_neighbors</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>dr.umap.spread</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.batch_size</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.device</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>embedding.method</code></th><td><code>generate</code></td></tr><tr><th style="width:340px"><code>embedding.model</code></th><td><code>medcpt</code></td></tr><tr><th style="width:340px"><code>embedding.path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>embedding.show_progress</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.beta</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_external</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.compute_internal</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>evaluation.external_provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>evaluation.filter_by_domain</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>evaluation.ground_truth_path</code></th><td><code>ground-truth/v2/curated_11domains_mapping.csv</code></td></tr><tr><th style="width:340px"><code>logging.file</code></th><td><code>./logs/pipeline.log</code></td></tr><tr><th style="width:340px"><code>logging.level</code></th><td><code>INFO</code></td></tr><tr><th style="width:340px"><code>output.export_formats</code></th><td><code>[
+  "csv",
+  "json"
+]</code></td></tr><tr><th style="width:340px"><code>output.figures_dir</code></th><td><code>./results/figures</code></td></tr><tr><th style="width:340px"><code>output.results_dir</code></th><td><code>/app/results_webui/Heptfluq</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.case_sensitive</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.enabled</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.min_verbatim_count</code></th><td><code>1</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.nuisance_phrases</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.provider</code></th><td><code>auto</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.run_golden_parity_check</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_file</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.source_xlsx_path</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>phrase_filtering.text_column</code></th><td><code>combined_text</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_optimized</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>phrase_filtering.use_verbatim_phrases</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_create_structure</code></th><td><code>True</code></td></tr><tr><th style="width:340px"><code>s3.auto_upload</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.aws_access_key_id</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_secret_access_key</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.aws_session_token</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.bucket_name</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.enabled</code></th><td><code>False</code></td></tr><tr><th style="width:340px"><code>s3.prefix</code></th><td><code></code></td></tr><tr><th style="width:340px"><code>s3.region</code></th><td><code>us-east-1</code></td></tr><tr><th style="width:340px"><code>visualization.provider</code></th><td><code>boyan</code></td></tr></tbody></table></div></details></div></details>
+      </div>
+
+      
+          <h2>Run hierarchy + artifact sources</h2>
+          <div class="card">
+            <div class="small" style="margin-bottom:10px;">
+              This summarizes which run directory supplied the artifacts actually used at each stage for <code>Heptfluq</code>.
+              (For seeded stages, we walk up the parent chain until we find the run that generated that stage.)
+            </div>
+            <div class="small" style="margin-bottom:6px;"><b>Lineage (root → current)</b></div>
+            <ul style="margin-top:0;"><li><code>Heptfluq</code> <span class="small" style="opacity:0.75">(root)</span><div class="small" style="margin-top:2px; opacity:0.8"><code>/app/results_webui/Heptfluq</code></div></li></ul>
+            <div class="small" style="margin-top:12px; margin-bottom:6px;"><b>Per-stage artifact source</b></div>
+            <table>
+              <thead>
+                <tr><th>stage_dir</th><th>stage_key</th><th>source run variable</th><th>source results_dir</th><th>artifacts</th></tr>
+              </thead>
+              <tbody>
+                <tr><th><code>01_ingest</code></th><td><code>ingest</code></td><td><code>Heptfluq</code></td><td><code>/app/results_webui/Heptfluq</code></td><td><details><summary class="small"><b>2</b> file(s)</summary><div style="margin-top:8px"><code>cde_df.pkl<br>ingestion_info.json</code></div></details></td></tr><tr><th><code>02_clean</code></th><td><code>clean</code></td><td><code>Heptfluq</code></td><td><code>/app/results_webui/Heptfluq</code></td><td><details><summary class="small"><b>7</b> file(s)</summary><div style="margin-top:8px"><code>cde_df.pkl<br>extract_embed.tsv<br>extract_embed_text.tsv<br>latest_cdes_html_stripped.csv<br>latest_cdes_html_stripped.json<br>strip_report.html<br>strip_report.md</code></div></details></td></tr><tr><th><code>03_phrases</code></th><td><code>phrases</code></td><td><code>Heptfluq</code></td><td><code>/app/results_webui/Heptfluq</code></td><td><details><summary class="small"><b>8</b> file(s)</summary><div style="margin-top:8px"><code>cde_df.pkl<br>extract_embed.tsv<br>extract_embed_text.tsv<br>latest_cdes_phrase_curated.csv<br>latest_cdes_phrase_curated_stripped.json<br>phrase_filtering_stats.json<br>strip_report.html<br>strip_report.md</code></div></details></td></tr><tr><th><code>04_embed</code></th><td><code>embed</code></td><td><code>Heptfluq</code></td><td><code>/app/results_webui/Heptfluq</code></td><td><details><summary class="small"><b>2</b> file(s)</summary><div style="margin-top:8px"><code>cde_df.pkl<br>embeddings.npy</code></div></details></td></tr><tr><th><code>05_dr</code></th><td><code>dr</code></td><td><code>Heptfluq</code></td><td><code>/app/results_webui/Heptfluq</code></td><td><details><summary class="small"><b>2</b> file(s)</summary><div style="margin-top:8px"><code>dr_model.pkl<br>reduced_embeddings.npy</code></div></details></td></tr><tr><th><code>06_cluster</code></th><td><code>cluster</code></td><td><code>Heptfluq</code></td><td><code>/app/results_webui/Heptfluq</code></td><td><details><summary class="small"><b>1</b> file(s)</summary><div style="margin-top:8px"><code>cluster_labels.npy</code></div></details></td></tr><tr><th><code>07_eval</code></th><td><code>eval</code></td><td><code>Heptfluq</code></td><td><code>/app/results_webui/Heptfluq</code></td><td><details><summary class="small"><b>3</b> file(s)</summary><div style="margin-top:8px"><code>detailed_results_20260429_145749.csv<br>metrics.json<br>metrics_20260429_145749.csv</code></div></details></td></tr><tr><th><code>08_viz</code></th><td><code>viz</code></td><td><code>Heptfluq</code></td><td><code>/app/results_webui/Heptfluq</code></td><td><details><summary class="small"><b>9</b> file(s)</summary><div style="margin-top:8px"><code>out__clustering_results.csv<br>out__clustering_results.json<br>out__figures__cluster_explorer.html<br>out__figures__cluster_explorer_data.json<br>out__figures__clustering_plot.html<br>out__figures__enhanced_clustering_plot.html<br>out__figures__enhanced_legacy_plot.html<br>out__metrics.json<br>outputs.json</code></div></details></td></tr>
+              </tbody>
+            </table>
+          </div>
+        
+
+      
+
+      <h2>Provenance</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="small" style="margin-bottom:6px">run_manifest.json (trimmed)</div>
+          <pre>{
+  "build": {
+    "app": "pipeline_cde",
+    "built_at_utc": "2026-04-21T22:03:34Z",
+    "dirty": "0",
+    "git_sha": "fd91fe873e61",
+    "git_sha_full": "fd91fe873e612f3b071d2512d480ccc6e0b4ade6",
+    "version": "cde-v1.0.162"
+  },
+  "code_versions": {
+    "boyan_peshlov_code": {
+      "_from_build_info": true,
+      "branch": "master",
+      "describe": "ff9fc33",
+      "dirty": false,
+      "head": "ff9fc33e39ad8a52ba3b4c1d230410ad877b249f",
+      "head_date": "2026-04-13T23:05:53+03:00",
+      "path": "/app/references/boyan_peshlov_code",
+      "type": "git"
+    },
+    "chambers_code": {
+      "_from_build_info": true,
+      "branch": "HEAD",
+      "describe": "cde-v1.0.162-dirty",
+      "dirty": true,
+      "head": "fd91fe873e612f3b071d2512d480ccc6e0b4ade6",
+      "head_date": "2026-04-21T15:02:52-07:00",
+      "path": "/app",
+      "type": "git"
+    },
+    "gerard_tromp_code": {
+      "_from_build_info": true,
+      "branch": "main",
+      "describe": "1b2c60c",
+      "dirty": false,
+      "head": "1b2c60c93ad0664fdc3128dc7b845cb320f532b8",
+      "head_date": "2026-04-21T15:50:37-04:00",
+      "path": "/app/references/gerard_tromp_code",
+      "type": "git"
+    },
+    "gerard_tromp_textextraction_code": {
+      "_from_build_info": true,
+      "branch": "main",
+      "describe": "e72a569",
+      "dirty": false,
+      "head": "e72a569a7b17a3769b01f8d5d3bb17db344ac7d7",
+      "head_date": "2026-04-16T15:53:02-04:00",
+      "path": "/app/references/gerard_tromp_textextraction_code",
+      "type": "git"
+    },
+    "interacting_clustering": {
+      "_from_build_info": true,
+      "branch": "main",
+      "describe": "c1ce427",
+      "dirty": false,
+      "head": "c1ce427a1ae470a072430840a292cb91321947c6",
+      "head_date": "2026-04-03T21:26:15-04:00",
+      "path": "/app/references/interacting_clustering",
+      "type": "git"
+    },
+    "martin_leach_code": {
+      "_from_build_info": true,
+      "branch": "main",
+      "describe": "88937ae",
+      "dirty": false,
+      "head": "88937ae037932b8ad3521fe70c8281ec20c7696f",
+      "head_date": "2026-01-15T15:40:59-05:00",
+      "path": "/app/references/martin_leach_code",
+      "type": "git"
+    },
+    "pipeline_cde": {
+      "_from_build_info": true,
+      "branch": "HEAD",
+      "describe": "cde-v1.0.162-dirty",
+      "dirty": true,
+      "head": "fd91fe873e612f3b071d2512d480ccc6e0b4ade6",
+      "head_date": "2026-04-21T15:02:52-07:00",
+      "path": "/app",
+      "type": "git"
+    }
+  },
+  "config": {
+    "_stage_results": {
+      "clustering": {
+        "algorithm": "hdbscan",
+        "coverage": 0.8081167831860353,
+        "fallback_error": null,
+        "fallback_from": null,
+        "fallback_reason": null,
+        "fallback_used": false,
+        "n_clusters": 478,
+        "n_noise": 4364,
+        "provider_requested": "boyan",
+        "provider_used": "boyan",
+        "stats": {
+          "avg_cluster_size": 38.44979079497908,
+          "cluster_sizes": {
+            "0": 32,
+            "1": 15,
+            "10": 17,
+            "100": 50,
+            "101": 114,
+            "102": 23,
+            "103": 30,
+            "104": 19,
+            "105": 67,
+            "106": 34,
+            "107": 44,
+            "108": 37,
+            "109": 52,
+            "11": 25,
+            "110": 65,
+            "111": 19,
+            "112": 27,
+            "113": 19,
+            "114": 58,
+            "115": 16,
+            "116": 28,
+            "117": 20,
+            "118": 43,
+            "119": 31,
+            "12": 27,
+            "120": 19,
+            "121": 31,
+            "122": 22,
+            "123": 42,
+            "124": 17,
+            "125": 43,
+            "126": 31,
+            "127": 328,
+            "128": 37,
+            "129": 28,
+            "13": 51,
+            "130": 16,
+            "131": 34,
+            "132": 111,
+            "133": 15,
+            "134": 68,
+            "135": 27,
+            "136": 24,
+            "137": 55,
+            "138": 76,
+            "139": 67,
+            "14": 43,
+            "140": 29,
+            "141": 16,
+            "142": 24,
+            "143": 50,
+            "144": 20,
+            "145": 71,
+            "146": 21,
+            "147": 18,
+            "148": 31,
+            "149": 28,
+            "15": 16,
+            "150": 23,
+            "151": 24,
+            "152": 28,
+            "153": 26,
+            "154": 33,
+            "155": 28,
+            "156": 43,
+            "157": 87,
+            "158": 28,
+            "159": 20,
+            "16": 27,
+            "160": 29,
+            "161": 44,
+            "162": 18,
+            "163": 19,
+            "164": 46,
+            "165": 37,
+            "166": 23,
+            "167": 55,
+            "168": 29,
+            "169": 36,
+            "17": 17,
+            "170": 16,
+            "171": 18,
+            "172": 40,
+            "173": 51,
+            "174": 56,
+            "175": 44,
+            "176": 20,
+            "177": 49,
+            "178": 22,
+            "179": 31,
+            "18": 20,
+            "180": 45,
+            "181": 91,
+            "182": 39,
+            "183": 23,
+            "184": 36,
+            "185": 47,
+            "186": 68,
+            "187": 25,
+            "188": 23,
+            "189": 23,
+            "19": 36,
+            "190": 27,
+            "191": 37,
+            "192": 42,
+            "193": 20,
+            "194": 62,
+            "195": 40,
+            "196": 48,
+            "197": 23,
+            "198": 21,
+            "199": 17,
+            "2": 18,
+            "20": 33,
+            "200": 36,
+            "201": 19,
+            "202": 64,
+            "203": 45,
+            "204": 16,
+            "205": 19,
+            "206": 34,
+            "207": 176,
+            "208": 27,
+            "209": 33,
+            "21": 18,
+            "210": 32,
+            "211": 56,
+            "212": 69,
+            "213": 18,
+            "214": 49,
+            "215": 37,
+            "216": 22,
+            "217": 32,
+            "218": 16,
+            "219": 29,
+            "22": 28,
+            "220": 45,
+            "221": 44,
+            "222": 31,
+            "223": 77,
+            "224": 18,
+            "225": 112,
+            "226": 25,
+            "227": 17,
+            "228": 26,
+            "229": 25,
+            "23": 45,
+            "230": 19,
+            "231": 21,
+            "232": 46,
+            "233": 23,
+            "234": 16,
+            "235": 59,
+            "236": 53,
+            "237": 20,
+            "238": 19,
+            "239": 27,
+            "24": 96,
+            "240": 58,
+            "241": 23,
+            "242": 17,
+            "243": 15,
+            "244": 43,
+            "245": 41,
+            "246": 18,
+            "247": 17,
+            "248": 35,
+            "249": 24,
+            "25": 21,
+            "250": 24,
+            "251": 41,
+            "252": 18,
+            "253": 34,
+            "254": 36,
+            "255": 19,
+            "256": 20,
+            "257": 40,
+            "258": 20,
+            "259": 54,
+            "26": 37,
+            "260": 17,
+            "261": 24,
+            "262": 72,
+            "263": 51,
+            "264": 17,
+            "265": 44,
+            "266": 18,
+            "267": 124,
+            "268": 23,
+            "269": 105,
+            "27": 20,
+            "270": 29,
+            "271": 22,
+            "272": 125,
+            "273": 19,
+            "274": 21,
+            "275": 36,
+            "276": 20,
+            "277": 40,
+            "278": 19,
+            "279": 16,
+            "28": 39,
+            "280": 31,
+            "281": 18,
+            "282": 20,
+            "283": 24,
+            "284": 17,
+            "285": 82,
+            "286": 41,
+            "287": 25,
+            "288": 18,
+            "289": 18,
+            "29": 19,
+            "290": 56,
+            "291": 58,
+            "292": 127,
+            "293": 49,
+            "294": 15,
+            "295": 56,
+            "296": 20,
+            "297": 25,
+            "298": 297,
+            "299": 37,
+            "3": 16,
+            "30": 42,
+            "300": 66,
+            "301": 16,
+            "302": 33,
+            "303": 43,
+            "304": 51,
+            "305": 32,
+            "306": 18,
+            "307": 94,
+            "308": 24,
+            "309": 55,
+            "31": 17,
+            "310": 36,
+            "311": 15,
+            "312": 27,
+            "313": 81,
+            "314": 34,
+            "315": 20,
+            "316": 30,
+            "317": 40,
+            "318": 79,
+            "319": 23,
+            "32": 74,
+            "320": 117,
+            "321": 52,
+            "322": 215,
+            "323": 17,
+            "324": 15,
+            "325": 51,
+            "326": 58,
+            "327": 21,
+            "328": 37,
+            "329": 32,
+            "33": 15,
+            "330": 78,
+            "331": 31,
+            "332": 25,
+            "333": 57,
+            "334": 35,
+            "335": 92,
+            "336": 15,
+            "337": 20,
+            "338": 63,
+            "339": 33,
+            "34": 153,
+            "340": 27,
+            "341": 72,
+            "342": 37,
+            "343": 15,
+            "344": 28,
+            "345": 17,
+            "346": 41,
+            "347": 29,
+            "348": 59,
+            "349": 37,
+            "35": 28,
+            "350": 16,
+            "351": 17,
+            "352": 15,
+            "353": 21,
+            "354": 22,
+            "355": 18,
+            "356": 135,
+            "357": 16,
+            "358": 16,
+            "359": 15,
+            "36": 22,
+            "360": 34,
+            "361": 40,
+            "362": 21,
+            "363": 28,
+            "364": 52,
+            "365": 43,
+            "366": 15,
+            "367": 36,
+            "368": 18,
+            "369": 68,
+            "37": 42,
+            "370": 29,
+            "371": 23,
+            "372": 15,
+            "373": 72,
+            "374": 15,
+            "375": 103,
+            "376": 15,
+            "377": 28,
+            "378": 28,
+            "379": 53,
+            "38": 32,
+            "380": 15,
+            "381": 17,
+            "382": 35,
+            "383": 37,
+            "384": 16,
+            "385": 51,
+            "386": 80,
+            "387": 19,
+            "388": 41,
+            "389": 23,
+            "39": 23,
+            "390": 38,
+            "391": 25,
+            "392": 59,
+            "393": 16,
+            "394": 52,
+            "395": 34,
+            "396": 22,
+            "397": 35,
+            "398": 19,
+            "399": 19,
+            "4": 17,
+            "40": 39,
+            "400": 56,
+            "401": 19,
+            "402": 17,
+            "403": 40,
+            "404": 16,
+            "405": 19,
+            "406": 39,
+            "407": 85,
+            "408": 47,
+            "409": 63,
+            "41": 19,
+            "410": 24,
+            "411": 21,
+            "412": 27,
+            "413": 43,
+            "414": 17,
+            "415": 19,
+            "416": 40,
+            "417": 24,
+            "418": 16,
+            "419": 30,
+            "42": 17,
+            "420": 31,
+            "421": 32,
+            "422": 62,
+            "423": 15,
+            "424": 19,
+            "425": 22,
+            "426": 32,
+            "427": 66,
+            "428": 23,
+            "429": 44,
+            "43": 38,
+            "430": 25,
+            "431": 37,
+            "432": 18,
+            "433": 22,
+            "434": 27,
+            "435": 16,
+            "436": 18,
+            "437": 74,
+            "438": 20,
+            "439": 28,
+            "44": 119,
+            "440": 42,
+            "441": 24,
+            "442": 16,
+            "443": 21,
+            "444": 61,
+            "445": 20,
+            "446": 24,
+            "447": 53,
+            "448": 19,
+            "449": 53,
+            "45": 27,
+            "450": 19,
+            "451": 28,
+            "452": 27,
+            "453": 45,
+            "454": 20,
+            "455": 37,
+            "456": 50,
+            "457": 33,
+            "458": 31,
+            "459": 35,
+            "46": 20,
+            "460": 29,
+            "461": 30,
+            "462": 61,
+            "463": 16,
+            "464": 60,
+            "465": 20,
+            "466": 52,
+            "467": 23,
+            "468": 27,
+            "469": 26,
+            "47": 18,
+            "470": 291,
+            "471": 190,
+            "472": 51,
+            "473": 57,
+            "474": 25,
+            "475": 35,
+            "476": 119,
+            "477": 19,
+            "48": 51,
+            "49": 63,
+            "5": 18,
+            "50": 34,
+            "51": 18,
+            "52": 16,
+            "53": 25,
+            "54": 35,
+            "55": 35,
+            "56": 32,
+            "57": 132,
+            "58": 20,
+            "59": 27,
+            "6": 16,
+            "60": 138,
+            "61": 103,
+            "62": 21,
+            "63": 27,
+            "64": 23,
+            "65": 16,
+            "66": 19,
+            "67": 21,
+            "68": 15,
+            "69": 63,
+            "7": 17,
+            "70": 56,
+            "71": 25,
+            "72": 22,
+            "73": 31,
+            "74": 22,
+            "75": 25,
+            "76": 17,
+            "77": 20,
+            "78": 17,
+            "79": 51,
+            "8": 36,
+            "80": 26,
+            "81": 20,
+            "82": 18,
+            "83": 19,
+            "84": 19,
+            "85": 24,
+            "86": 26,
+            "87": 80,
+            "88": 62,
+            "89": 27,
+            "9": 34,
+            "90": 23,
+            "91": 30,
+            "92": 21,
+            "93": 38,
+            "94": 19,
+            "95": 15,
+            "96": 23,
+            "97": 33,
+            "98": 15,
+            "99": 17
+          },
+          "coverage": 0.8081167831860353,
+          "n_clusters": 478,
+          "n_noise": 4364,
+          "n_points": 22743
+        }
+      },
+      "data_ingestion": {
+        "adapter_used": false,
+        "fallback_error": null,
+        "fallback_from": null,
+        "fallback_reason": null,
+        "fallback_used": false,
+        "provider_requested": "local",
+        "provider_resolved": "local",
+        "provider_used": "local",
+        "records_loaded": 22743,
+        "summary": {
+          "Definition_non_null": 22743,
+          "Name_non_null": 22743,
+          "Question_non_null": 22743,
+          "columns": [
+            "tinyId",
+            "Name",
+            "Name_json_path",
+            "Question",
+            "Question_json_path",
+            "Definition",
+            "Definition_json_path",
+            "objectClass",
+            "valueDomain",
+            "elementType",
+            "steward",
+            "nih_endorsed",
+            "origin",
+            "source",
+            "domain"
+          ],
+          "memory_usage_mb": 30.008472442626953,
+          "total_records": 22743
+        }
+      },
+      "dataset_selection": {
+        "mode": "full_corpus",
+        "n_eligible": 22743,
+        "n_input": 22743,
+        "n_selected": 22743,
+        "strategy": "full"
+      },
+      "dimensionality_reduction": {
+        "fallback_error": null,
+        "fallback_from": null,
+        "fallback_reason": null,
+        "fallback_used": false,
+        "method": "umap",
+        "n_components": 50,
+        "original_shape": [
+          22743,
+          768
+        ],
+        "provider_requested": "boyan",
+        "provider_used": "boyan",
+        "reduced_shape": [
+          22743,
+          50
+        ],
+        "stats": {
+          "original_shape": [
+            22743,
+            768
+          ],
+          "reduced_shape": [
+            22743,
+            50
+          ],
+          "reduction_ratio": 0.06510416666666667,
+          "variance_preserved": null
+        }
+      },
+      "embedding_generation": {
+        "embedding_shape": [
+          22743,
+          768
+        ],
+        "records_with_embeddings": 22743,
+        "stats": {
+          "dtype": "float32",
+          "max": 1.3979971408843994,
+          "mean": -0.013146769255399704,
+          "min": -7.5148210525512695,
+          "shape": [
+            22743,
+            768
+          ],
+          "std": 0.33380308747291565
+        }
+      },
+      "evaluation": {
+        "metrics": {
+          "ami_score": 0.05757967860937478,
+          "ari_score": 0.0014329229405885,
+          "calinski_harabasz_score": 3662.935791015625,
+          "completeness_score": 0.06272041175497205,
+          "coverage": 0.7958,
+          "dataset_selection": {
+            "mode": "full_corpus",
+            "require_domain": false,
+            "seed": 42,
+            "strategy": "proportional_per_domain",
+            "target_n": 1200
+          },
+          "davies_bouldin_score": 0.4390372352789136,
+          "homogeneity_score": 0.13871680214482568,
+          "n_cdes": 22743,
+          "n_clusters": 473,
+          "n_domains": 11,
+          "n_noise": 1021,
+          "nmi_score": 0.08638299527101624,
+          "silhouette_score": 0.6203049421310425,
+          "v_measure_score": 0.08638299527101623
+        },
+        "metrics_computed": 15,
+        "provenance": {
+          "cvi_error": null,
+          "cvi_provider_used": null,
+          "external_fallback_error": null,
+          "external_fallback_reason": null,
+          "external_fallback_used": false,
+          "external_provider_requested": "auto",
+          "external_provider_used": "local",
+          "internal_metrics_sample": {
+            "internal_max_points": 5000,
+            "internal_sample_size": 5000,
+            "n_total": 22743,
+            "n_used": 5000,
+            "sampled": true,
+            "seed": 42
+          },
+          "internal_provider_used": null
+        }
+      },
+      "metadata_cleaning": {
+        "html_provider": "gerard",
+        "html_provider_config": "auto",
+        "html_use_optimized": false,
+        "provider": "local",
+        "provider_config": "auto",
+        "provider_requested": "auto",
+        "records_processed": 22743,
+        "stats": {
+          "Definition": {
+            "avg_length": 84.55353295519501,
+            "empty": 0,
+            "non_empty": 22743
+          },
+          "Name": {
+            "avg_length": 54.19390581717452,
+            "empty": 0,
+            "non_empty": 22743
+          },
+          "Question": {
+            "avg_length": 19.65813656949391,
+            "empty": 0,
+            "non_empty": 22743
+          },
+          "combined_text": {
+            "avg_length": 160.08956602031395,
+            "empty": 0,
+            "non_empty": 22743
+          }
+        }
+      },
+      "phrase_filtering": {
+        "provider": "gerard",
+        "provider_config": "auto",
+        "records_processed": 22743,
+        "source_path": null,
+        "stats": {
+          "avg_length_after": 140.0199182165941,
+          "avg_length_before": 160.08956602031395,
+          "avg_reduction": 20.069647803719825,
+          "records_modified": 6719,
+          "total_reduction": 456444
+        },
+        "use_optimized": false
+      },
+      "visualization": {
+        "domain_reports_created": 0,
+        "exports_created": 3,
+        "outputs": {
+          "_provenance": {
+            "clustering_plot": {
+              "fallback_error": null,
+              "fallback_reason": null,
+              "fallback_used": false,
+              "provider_requested": "boyan",
+              "provider_used": "local",
+              "skipped": false,
+              "skipped_reason": null
+            },
+            "enhanced_clustering_plot": {
+              "available": true,
+              "label": "Enhanced clustering plot",
+              "source": "enhanced_clustering_plot.html"
+            },
+            "legacy_clustering_plot": {
+              "available": false,
+              "label": "Legacy clustering plot"
+            }
+          },
+          "cluster_explorer": "/app/results_webui/Heptfluq/figures/cluster_explorer.html",
+          "cluster_explorer_data": "/app/results_webui/Heptfluq/figures/cluster_explorer_data.json",
+          "clustering_plot": "/app/results_webui/Heptfluq/figures/clustering_plot.html",
+          "csv": "/app/results_webui/Heptfluq/clustering_results.csv",
+          "enhanced_clustering_plot": "/app/results_webui/Heptfluq/figures/enhanced_clustering_plot.html",
+          "json": "/app/results_webui/Heptfluq/clustering_results.json",
+          "llm_redundancy_results": null,
+          "metrics": "/app/results_webui/Heptfluq/metrics.json",
+          "metrics_summary": "/app/results_webui/Heptfluq/figures/metrics_summary.html"
+        },
+        "provenance": {
+          "clustering_plot": {
+            "fallback_error": null,
+            "fallback_reason": null,
+            "fallback_used": false,
+            "provider_requested": "boyan",
+            "provider_used": "local",
+            "skipped": false,
+            "skipped_reason": null
+          },
+          "enhanced_clustering_plot": {
+            "available": true,
+            "label": "Enhanced clustering plot",
+            "source": "enhanced_clustering_plot.html"
+          },
+          "legacy_clustering_plot": {
+            "available": false,
+            "label": "Legacy clustering plot"
+          }
+        },
+        "visualizations_created": 6
+      }
+    },
+    "analysis": {
+      "llm_config": {
+        "api_key": null,
+        "model": "gpt-4o-mini",
+        "provider": "openai",
+        "text_source": "phrase_filtered"
+      },
+      "llm_redundancy": false
+    },
+    "cleaning": {
+      "html": {
+        "colnames": false,
+        "tables": true,
+        "use_optimized": true
+      },
+      "html_provider": "auto",
+      "lowercase": true,
+      "normalize_whitespace": true,
+      "provider": "auto",
+      "remove_html": true,
+      "text_columns": [
+        "Name",
+        "Question",
+        "Definition"
+      ]
+    },
+    "clustering": {
+      "algorithm": "hdbscan",
+      "hdbscan": {
+        "allow_single_cluster": null,
+        "alpha": null,
+        "approx_min_span_tree": null,
+        "cluster_selection_epsilon": null,
+        "cluster_selection_method": null,
+        "core_dist_n_jobs": null,
+        "gen_min_span_tree": null,
+        "prediction_data": null
+      },
+      "kmeans": {
+        "n_clusters": 10,
+        "n_init": 10,
+        "random_state": 42
+      },
+      "metric": "cosine",
+      "min_cluster_size": 15,
+      "min_samples": 5,
+      "provider": "boyan"
+    },
+    "data": {
+      "format": "auto",
+      "input_path": "raw/2025-09-18/all_cdes.json",
+      "provider": "local",
+      "selection": {
+        "mode": "full_corpus",
+        "require_domain": false,
+        "seed": 42,
+        "strategy": "proportional_per_domain",
+        "target_n": 1200
+      },
+      "validate": true
+    },
+    "dr": {
+      "method": "umap",
+      "n_components": 50,
+      "provider": "boyan",
+      "random_state": 42,
+      "tsne": {
+        "allow_large_exact": false,
+        "init": null,
+        "learning_rate": null,
+        "max_samples_exact": 5000,
+        "n_iter": null,
+        "perplexity": null
+      },
+      "umap": {
+        "init": null,
+        "learning_rate": null,
+        "metric": "cosine",
+        "min_dist": null,
+        "n_epochs": null,
+        "n_neighbors": null,
+        "spread": null
+      }
+    },
+    "embedding": {
+      "batch_size": "auto",
+      "device": "auto",
+      "method": "generate",
+      "model": "medcpt",
+      "path": null,
+      "show_progress": true
+    },
+    "evaluation": {
+      "beta": 1,
+      "compute_external": true,
+      "compute_internal": true,
+      "external_provider": "auto",
+      "filter_by_domain": false,
+      "ground_truth_path": "ground-truth/v2/curated_11domains_mapping.csv"
+    },
+    "logging": {
+      "file": "./logs/pipeline.log",
+      "level": "INFO"
+    },
+    "output": {
+      "export_formats": [
+        "csv",
+        "json"
+      ],
+      "figures_dir": "./results/figures",
+      "results_dir": "/app/results_webui/Heptfluq"
+    },
+    "phrase_filtering": {
+      "case_sensitive": false,
+      "enabled": true,
+      "min_verbatim_count": 1,
+      "nuisance_phrases": null,
+      "provider": "auto",
+      "run_golden_parity_check": false,
+      "source_file": null,
+      "source_xlsx_path": null,
+      "text_column": "combined_text",
+      "use_optimized": false,
+      "use_verbatim_phrases": true
+    },
+    "s3": {
+      "auto_create_structure": true,
+      "auto_upload": false,
+      "aws_access_key_id": null,
+      "aws_secret_access_key": null,
+      "aws_session_token": null,
+      "bucket_name": "",
+      "enabled": false,
+      "prefix": "",
+      "region": "us-east-1"
+    },
+    "visualization": {
+      "provider": "boyan"
+    }
+  },
+  "host": {
+    "cwd": "/app",
+    "platform": "Linux-6.8.0-1052-aws-x86_64-with-glibc2.36",
+    "python": "3.10.17"
+  },
+  "key_metrics": {
+    "ami_score": 0.05757967860937478,
+    "ari_score": 0.0014329229405885,
+    "calinski_harabasz_score": 3662.935791015625,
+    "completeness_score": 0.06272041175497205,
+    "coverage": 0.7958,
+    "davies_bouldin_score": 0.4390372352789136,
+    "homogeneity_score": 0.13871680214482568,
+    "n_cdes": 22743,
+    "n_clusters": 473,
+    "n_domains": 11,
+    "n_noise": 1021,
+    "nmi_score": 0.08638299527101624,
+    "silhouette_score": 0.6203049421310425,
+    "v_measure_score": 0.08638299527101623
+  },
+  "metrics": {
+    "ami_score": 0.05757967860937478,
+    "ari_score": 0.0014329229405885,
+    "calinski_harabasz_score": 3662.935791015625,
+    "completeness_score": 0.06272041175497205,
+    "coverage": 0.7958,
+    "dataset_selection": {
+      "mode": "full_corpus",
+      "require_domain": false,
+      "seed": 42,
+      "strategy": "proportional_per_domain",
+      "target_n": 1200
+    },
+    "davies_bouldin_score": 0.4390372352789136,
+    "homogeneity_score": 0.13871680214482568,
+    "n_cdes": 22743,
+    "n_clusters": 473,
+    "n_domains": 11,
+    "n_noise": 1021,
+    "nmi_score": 0.08638299527101624,
+    "silhouette_score": 0.6203049421310425,
+    "v_measure_score": 0.08638299527101623
+  },
+  "outputs": {
+    "_provenance": {
+      "clustering_plot": {
+        "fallback_error": null,
+        "fallback_reason": null,
+        "fallback_used": false,
+        "provider_requested": "boyan",
+        "provider_used": "local",
+        "skipped": false,
+        "skipped_reason": null
+      },
+      "enhanced_clustering_plot": {
+        "available": true,
+        "label": "Enhanced clustering plot",
+        "source": "enhanced_clustering_plot.html"
+      },
+      "legacy_clustering_plot": {
+        "available": false,
+        "label": "Legacy clustering plot"
+      }
+    },
+    "cluster_explorer": "/app/results_webui/Heptfluq/figures/cluster_explorer.html",
+    "cluster_explorer_data": "/app/results_webui/Heptfluq/figures/cluster_explorer_data.json",
+    "clustering_plot": "/app/results_webui/Heptfluq/figures/clustering_plot.html",
+    "csv": "/app/results_webui/Heptfluq/clustering_results.csv",
+    "enhanced_clustering_plot": "/app/results_webui/Heptfluq/figures/enhanced_clustering_plot.html",
+    "json": "/app/results_webui/Heptfluq/clustering_results.json",
+    "llm_redundancy_results": null,
+    "metrics": "/app/results_webui/Heptfluq/metrics.json",
+    "metrics_summary": "/app/results_webui/Heptfluq/figures/metrics_summary.html"
+  },
+  "providers": {
+    "cleaning.html.use_optimized": true,
+    "cleaning.html_provider": "gerard",
+    "cleaning.provider": "auto",
+    "clustering.algorithm": "hdbscan",
+    "clustering.fallback_error": null,
+    "clustering.fallback_from": null,
+    "clustering.fallback_reason": null,
+    "clustering.fallback_used": false,
+    "clustering.provider": "boyan",
+    "clustering.provider_requested": "boyan",
+    "data.fallback_error": null,
+    "data.fallback_from": null,
+    "data.fallback_reason": null,
+    "data.fallback_used": false,
+    "data.provider": "local",
+    "data.provider_requested": "local",
+    "dr.fallback_error": null,
+    "dr.fallback_from": null,
+    "dr.fallback_reason": null,
+    "dr.fallback_used": false,
+    "dr.method": "umap",
+    "dr.provider": "boyan",
+    "dr.provider_requested": "boyan",
+    "embedding.model": "medcpt",
+    "evaluation.external_provider": "auto",
+    "phrase_filtering.provider": "gerard",
+    "phrase_filtering.use_optimized": false,
+    "visualization.provider": "boyan"
+  },
+  "results_dir": "/app/results_webui/Heptfluq",
+  "run_id": "Heptfluq",
+  "run_id_long": "l__b__b__pfg__htmlg__Heptfluq",
+  "runtime_seconds": 1159.0534796714783,
+  "schema_version": 1,
+  "success": true,
+  "timestamp_utc": "2026-04-29T14:58:34.015196+00:00"
+}</pre>
+        </div>
+        <div class="card">
+          <div class="small" style="margin-bottom:6px">pipeline_status.json</div>
+          <pre>{
+  "completed_stages": [
+    "ingest",
+    "clean",
+    "phrases",
+    "embed",
+    "dr",
+    "cluster",
+    "eval",
+    "viz"
+  ],
+  "current_stage": null,
+  "ended_utc": "2026-04-29T14:58:34Z",
+  "from_stage": "ingest",
+  "last_run_summary": "/app/results_webui/Heptfluq/last_run_summary.json",
+  "next_stage": null,
+  "remaining_stages": [],
+  "results_dir": "/app/results_webui/Heptfluq",
+  "run_status": "completed",
+  "stage_statuses": {
+    "clean": "completed",
+    "cluster": "completed",
+    "dr": "completed",
+    "embed": "completed",
+    "eval": "completed",
+    "ingest": "completed",
+    "phrases": "completed",
+    "viz": "completed"
+  },
+  "started_utc": "2026-04-29T14:39:14Z",
+  "to_stage": "viz",
+  "updated_utc": "2026-04-29T14:58:34Z"
+}</pre>
+        </div>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <div class="small" style="margin-bottom:6px">code_versions</div>
+        <pre>{
+  "boyan_peshlov_code": {
+    "_from_build_info": true,
+    "branch": "master",
+    "describe": "ff9fc33",
+    "dirty": false,
+    "head": "ff9fc33e39ad8a52ba3b4c1d230410ad877b249f",
+    "head_date": "2026-04-13T23:05:53+03:00",
+    "path": "/app/references/boyan_peshlov_code",
+    "type": "git"
+  },
+  "chambers_code": {
+    "_from_build_info": true,
+    "branch": "HEAD",
+    "describe": "cde-v1.0.162-dirty",
+    "dirty": true,
+    "head": "fd91fe873e612f3b071d2512d480ccc6e0b4ade6",
+    "head_date": "2026-04-21T15:02:52-07:00",
+    "path": "/app",
+    "type": "git"
+  },
+  "gerard_tromp_code": {
+    "_from_build_info": true,
+    "branch": "main",
+    "describe": "1b2c60c",
+    "dirty": false,
+    "head": "1b2c60c93ad0664fdc3128dc7b845cb320f532b8",
+    "head_date": "2026-04-21T15:50:37-04:00",
+    "path": "/app/references/gerard_tromp_code",
+    "type": "git"
+  },
+  "gerard_tromp_textextraction_code": {
+    "_from_build_info": true,
+    "branch": "main",
+    "describe": "e72a569",
+    "dirty": false,
+    "head": "e72a569a7b17a3769b01f8d5d3bb17db344ac7d7",
+    "head_date": "2026-04-16T15:53:02-04:00",
+    "path": "/app/references/gerard_tromp_textextraction_code",
+    "type": "git"
+  },
+  "interacting_clustering": {
+    "_from_build_info": true,
+    "branch": "main",
+    "describe": "c1ce427",
+    "dirty": false,
+    "head": "c1ce427a1ae470a072430840a292cb91321947c6",
+    "head_date": "2026-04-03T21:26:15-04:00",
+    "path": "/app/references/interacting_clustering",
+    "type": "git"
+  },
+  "martin_leach_code": {
+    "_from_build_info": true,
+    "branch": "main",
+    "describe": "88937ae",
+    "dirty": false,
+    "head": "88937ae037932b8ad3521fe70c8281ec20c7696f",
+    "head_date": "2026-01-15T15:40:59-05:00",
+    "path": "/app/references/martin_leach_code",
+    "type": "git"
+  },
+  "pipeline_cde": {
+    "_from_build_info": true,
+    "branch": "HEAD",
+    "describe": "cde-v1.0.162-dirty",
+    "dirty": true,
+    "head": "fd91fe873e612f3b071d2512d480ccc6e0b4ade6",
+    "head_date": "2026-04-21T15:02:52-07:00",
+    "path": "/app",
+    "type": "git"
+  }
+}</pre>
+      </div>
+
+      
+      <h2>Live log tail</h2>
+      <div class="small" style="margin-bottom:8px;"><code>/app/results_webui/Heptfluq/webui_run.log</code></div>
+      <pre style="white-space:pre-wrap;">[2026-04-29T14:39:00.768005+00:00] WEBUI starting new run Heptfluq (job job_1777473540_1073)
+[2026-04-29T14:39:00.768013+00:00] CWD: /app
+[2026-04-29T14:39:00.768016+00:00] RESULTS_DIR: /app/results_webui/Heptfluq
+[2026-04-29T14:39:00.768022+00:00] CMD: python3 -u /app/scripts/run_pipeline.py --config /app/results_webui/Heptfluq/webui_merged_config.yaml --results-dir /app/results_webui/Heptfluq --from-stage ingest --to-stage viz --no-cache
+
+2026-04-29 14:39:02,520 - adapters.gerard_text_adapter - INFO - gerard_tromp_textextraction_code is available at /app/references/gerard_tromp_textextraction_code
+2026-04-29 14:39:14,922 - adapters.gerard_adapter - WARNING - Failed to import from gerard_tromp_code (fallbacks enabled): No module named 'mlflow'
+2026-04-29 14:39:14,959 - __main__ - INFO - Loaded configuration from: /app/results_webui/Heptfluq/webui_merged_config.yaml
+2026-04-29 14:39:14,959 - pipeline.orchestration - INFO - Starting CDE analysis pipeline
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO - Stage 1: Data ingestion
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO - INVOCATION CALL (before stage 1:ingest)
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO -   mode: cli
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO -   call: (not provided by launcher)
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO - CALL PROVENANCE (from config; before stage body runs)
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO -   • [orchestrator] pipeline/orchestration.py::CDEPipeline.run
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO -       stage_key = ingest
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO -       stage_order = 1
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO -   • [pipeline] pipeline/orchestration.py::CDEPipeline._stage_1_data_ingestion
+2026-04-29 14:39:14,960 - pipeline.orchestration - INFO -       results_dir = /app/results_webui/Heptfluq
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO -   • [pipeline] pipeline/data_ingestion.py::ingest_cde_data
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO -       data.provider = local
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO -       data.selection.mode = full_corpus
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO -       data_format = auto
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO -       data_path = raw/2025-09-18/all_cdes.json
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO -       filter_by_domain = True
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO -       s3.enabled = False
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO -       note: Stage 1 resolves provider auto/local to the local loader; optional S3 via pipeline.s3 + boto.
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO -   • [external] stdlib json.loads / pathlib + pandas.read_csv | pandas.read_json
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO -       ground_truth_path = ground-truth/v2/curated_11domains_mapping.csv
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO -       note: NIH JSON uses flatten_json_cde_record then pandas.DataFrame; CSV/TSV via read_csv.
+2026-04-29 14:39:14,961 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:14,962 - pipeline.data_ingestion - INFO - Ingesting CDE data from: raw/2025-09-18/all_cdes.json
+2026-04-29 14:39:14,962 - pipeline.data_ingestion - INFO - Loading data directly (local loader)
+2026-04-29 14:39:17,617 - pipeline.data_ingestion - INFO - Flattening nested JSON structure...
+2026-04-29 14:39:17,873 - pipeline.data_ingestion - INFO - Loading domain assignments from: ground-truth/v2/curated_11domains_mapping.csv
+2026-04-29 14:39:17,912 - pipeline.data_ingestion - INFO - Kept all 22743 CDEs; 22743 have domain assignments, 0 do not
+2026-04-29 14:39:17,928 - pipeline.data_ingestion - INFO - Domain distribution: {'Autism': 2284, 'Blood Pressure': 2284, 'Sex': 2279, 'VitalStatistics': 2279, 'Fatigue': 2245, 'Alzheimer': 2245, 'Complete blood count': 2210, 'Depression': 2210, 'Childname': 1569, 'Dementia': 1569, 'Redness': 1569}
+2026-04-29 14:39:17,928 - pipeline.data_ingestion - INFO - Validating CDE data structure
+2026-04-29 14:39:17,930 - pipeline.data_ingestion - INFO - Data validation passed
+2026-04-29 14:39:17,930 - pipeline.data_ingestion - INFO - Successfully ingested 22743 CDE records.
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO - STAGE RESULT (after stage 1:ingest)
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO -   cde_df: cde_df.pkl
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO -   data_input_path: raw/2025-09-18/all_cdes.json
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO -   domains: ["Alzheimer", "Autism", "Blood Pressure", "Childname", "Complete blood count", "Dementia", "Depression", "Fatigue", "Redness", "Sex", "VitalStatistics"]
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO -   ground_truth_path: ground-truth/v2/curated_11domains_mapping.csv
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO -   ingestion_info: ingestion_info.json
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO -   records_loaded: 22743
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO -   unique_domains: 11
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO -   stage_state: /app/results_webui/Heptfluq/stages/01_ingest/stage_state.json
+2026-04-29 14:39:18,254 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO - Stage 2: Metadata cleaning
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO - INVOCATION CALL (before stage 2:clean)
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -   mode: cli
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -   call: (not provided by launcher)
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO - CALL PROVENANCE (from config; before stage body runs)
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -   • [orchestrator] pipeline/orchestration.py::CDEPipeline.run
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -       stage_key = clean
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -       stage_order = 2
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -   • [pipeline] pipeline/orchestration.py::CDEPipeline._stage_2_metadata_cleaning
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -   • [pipeline] pipeline/metadata_cleaning.py::clean_metadata
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -       cleaning.html.use_optimized = True
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -       cleaning.html_provider = local
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -       cleaning.provider = auto
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -   • [local] pipeline/metadata_cleaning.py::clean_text_fallback (remove_html)
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO -   • [local] pipeline/metadata_cleaning.py::clean_text_fallback
+2026-04-29 14:39:18,255 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:18,256 - pipeline.metadata_cleaning - INFO - Cleaning CDE metadata
+2026-04-29 14:39:18,268 - pipeline.metadata_cleaning - INFO - Using gerard_tromp_textextraction_code for HTML stripping
+2026-04-29 14:39:18,269 - pipeline.metadata_cleaning - WARNING - Stage 2: cleaning.html.use_optimized=true requested, but parity mode is enforced. Forcing false.
+2026-04-29 14:39:18,269 - adapters.gerard_text_adapter - INFO - Using gerard_tromp_textextraction_code for HTML stripping
+2026-04-29 14:39:21,129 - adapters.gerard_text_adapter - INFO - Stripped HTML from 3 columns using gerard_tromp_textextraction_code
+2026-04-29 14:39:21,132 - pipeline.metadata_cleaning - INFO - Using local text cleaning implementation
+2026-04-29 14:39:21,443 - pipeline.metadata_cleaning - INFO - Cleaned 3 text columns
+2026-04-29 14:39:21,444 - pipeline.metadata_cleaning - INFO - Combining text fields
+2026-04-29 14:39:21,487 - pipeline.metadata_cleaning - INFO - Combined 3 text fields
+2026-04-29 14:39:23,026 - pipeline.orchestration - INFO - Exported HTML-stripped CDEs: latest_cdes_html_stripped.json
+2026-04-29 14:39:23,502 - pipeline.orchestration - INFO - Exported HTML-stripped CDEs: latest_cdes_html_stripped.csv
+2026-04-29 14:39:23,502 - pipeline.orchestration - INFO - Generating Gerard HTML stripping reports...
+2026-04-29 14:39:33,155 - actions.strip_report.run - INFO - Generating strip quality report for: /app/results_webui/Heptfluq/stages/02_clean
+2026-04-29 14:39:34,322 - actions.strip_report.run - INFO - Scanning temp_for_reports (22743 records)...
+2026-04-29 14:39:34,348 - logic.remnant_detector - INFO - Detected 0 remnants across 22743 records
+Strip quality report generated: /app/results_webui/Heptfluq/stages/02_clean/strip_report.md
+2026-04-29 14:39:47,949 - pipeline.orchestration - INFO - Generated Gerard reports: ['strip_report.md', 'strip_report.html', 'extract_embed.tsv', 'extract_embed_text.tsv']
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO - STAGE RESULT (after stage 2:clean)
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO -   cde_df: cde_df.pkl
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO -   stage_state: /app/results_webui/Heptfluq/stages/02_clean/stage_state.json
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO - Stage 3: Phrase filtering
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO - INVOCATION CALL (before stage 3:phrases)
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO -   mode: cli
+2026-04-29 14:39:48,105 - pipeline.orchestration - INFO -   call: (not provided by launcher)
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO - CALL PROVENANCE (from config; before stage body runs)
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO -   • [orchestrator] pipeline/orchestration.py::CDEPipeline.run
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO -       stage_key = phrases
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO -       stage_order = 3
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO -   • [pipeline] pipeline/orchestration.py::CDEPipeline._stage_3_phrase_filtering
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO -       phrase_filtering.enabled = True
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO -   • [pipeline] pipeline/phrase_filtering.py::filter_nuisance_phrases
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO -       phrase_filtering.provider = auto
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO -   • [local] pipeline/phrase_filtering.py::(local phrase filtering)
+2026-04-29 14:39:48,106 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:39:48,119 - pipeline.phrase_filtering - INFO - Stage 3: Filtering repetitive administrative phrases from embedding text
+2026-04-29 14:39:48,731 - pipeline.phrase_filtering - INFO - Loaded admin phrase map from CSV: 7975 tinyIds (repetitive_administrative_phrases.csv)
+2026-04-29 14:39:48,742 - pipeline.phrase_filtering - INFO - Using gerard_tromp_textextraction_code for phrase filtering
+2026-04-29 14:39:48,742 - adapters.gerard_text_adapter - INFO - Using gerard_tromp_textextraction_code for phrase stripping (n_tinyIds=7975)
+2026-04-29 14:40:09,419 - adapters.gerard_text_adapter - INFO - Stripped phrases using gerard_tromp_textextraction_code
+2026-04-29 14:40:09,522 - pipeline.phrase_filtering - INFO - Phrase filtering completed using provider: gerard
+2026-04-29 14:40:10,896 - pipeline.orchestration - INFO - Exported phrase-curated CDEs: latest_cdes_phrase_curated_stripped.json
+2026-04-29 14:40:11,382 - pipeline.orchestration - INFO - Exported phrase-curated CDEs: latest_cdes_phrase_curated.csv
+2026-04-29 14:40:11,382 - pipeline.orchestration - INFO - Generating Gerard phrase filtering reports...
+2026-04-29 14:40:21,531 - actions.strip_report.run - INFO - Generating strip quality report for: /app/results_webui/Heptfluq/stages/03_phrases
+2026-04-29 14:40:21,805 - actions.strip_report.run - INFO - Scanning temp_for_reports (22743 records)...
+2026-04-29 14:40:21,829 - logic.remnant_detector - INFO - Detected 0 remnants across 22743 records
+Strip quality report generated: /app/results_webui/Heptfluq/stages/03_phrases/strip_report.md
+2026-04-29 14:40:38,103 - pipeline.orchestration - INFO - Generated Gerard reports: ['strip_report.md', 'strip_report.html', 'extract_embed.tsv', 'extract_embed_text.tsv']
+2026-04-29 14:40:38,277 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:40:38,277 - pipeline.orchestration - INFO - STAGE RESULT (after stage 3:phrases)
+2026-04-29 14:40:38,277 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:40:38,277 - pipeline.orchestration - INFO -   cde_df: cde_df.pkl
+2026-04-29 14:40:38,277 - pipeline.orchestration - INFO -   phrase_filtering_stats: phrase_filtering_stats.json
+2026-04-29 14:40:38,277 - pipeline.orchestration - INFO -   stage_state: /app/results_webui/Heptfluq/stages/03_phrases/stage_state.json
+2026-04-29 14:40:38,277 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:40:38,277 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO - Stage 4: Embedding generation
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO - INVOCATION CALL (before stage 4:embed)
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -   mode: cli
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -   call: (not provided by launcher)
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO - CALL PROVENANCE (from config; before stage body runs)
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -   • [orchestrator] pipeline/orchestration.py::CDEPipeline.run
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -       stage_key = embed
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -       stage_order = 4
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -   • [pipeline] pipeline/orchestration.py::CDEPipeline._stage_4_embedding_generation
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -   • [pipeline] pipeline/embedding_generation.py::generate_or_load_embeddings
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -       embedding.device = auto
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -       embedding.method = generate
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -       embedding.model = medcpt
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -   • [pipeline] pipeline/embedding_generation.py::_embed_with_sentence_transformer | _embed_with_automodel
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -       registry = pipeline_cde/config/embedding_models.txt
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -   • [external] sentence_transformers.SentenceTransformer.encode | transformers.AutoModel.forward + pooling
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO -       note: Depends on embedding_models.txt kind (ST vs Auto).
+2026-04-29 14:40:38,278 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:40:38,279 - pipeline.embedding_generation - INFO - Embedding generation method: generate
+2026-04-29 14:40:38,279 - pipeline.embedding_generation - INFO - Generating embeddings (on-the-fly)
+2026-04-29 14:40:38,279 - pipeline.embedding_generation - INFO - Embedding model: alias=medcpt kind=Auto id=ncbi/MedCPT-Query-Encoder (https://huggingface.co/ncbi/MedCPT-Query-Encoder)
+2026-04-29 14:40:38,282 - pipeline.embedding_generation - INFO - Generating embeddings for 22743 texts
+2026-04-29 14:40:38,282 - pipeline.embedding_generation - INFO - Embedding backend: transformers AutoModel/AutoTokenizer
+
+Loading weights:   0%|          | 0/197 [00:00&lt;?, ?it/s]
+Loading weights: 100%|██████████| 197/197 [00:00&lt;00:00, 13205.44it/s]
+[1mBertModel LOAD REPORT[0m from: ncbi/MedCPT-Query-Encoder
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.bias   | UNEXPECTED |  | 
+pooler.dense.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-04-29 14:40:55,352 - pipeline.embedding_generation - INFO - Auto embedding backend: transformers (device=cpu, batch_size=16, max_length=512, pooling=mean, normalize=False, batches=1422)
+2026-04-29 14:41:17,026 - pipeline.embedding_generation - INFO - Auto embedding progress: 272/22743 texts (1.3%) @ 12.5 texts/s ETA 1790s
+2026-04-29 14:41:37,207 - pipeline.embedding_generation - INFO - Auto embedding progress: 768/22743 texts (3.4%) @ 18.3 texts/s ETA 1197s
+2026-04-29 14:41:57,342 - pipeline.embedding_generation - INFO - Auto embedding progress: 1248/22743 texts (5.6%) @ 20.1 texts/s ETA 1067s
+2026-04-29 14:42:18,300 - pipeline.embedding_generation - INFO - Auto embedding progress: 1664/22743 texts (7.4%) @ 20.1 texts/s ETA 1050s
+2026-04-29 14:42:39,417 - pipeline.embedding_generation - INFO - Auto embedding progress: 2128/22743 texts (9.4%) @ 20.4 texts/s ETA 1008s
+2026-04-29 14:43:02,082 - pipeline.embedding_generation - INFO - Auto embedding progress: 2688/22743 texts (11.9%) @ 21.2 texts/s ETA 945s
+2026-04-29 14:43:22,152 - pipeline.embedding_generation - INFO - Auto embedding progress: 3184/22743 texts (14.1%) @ 21.7 texts/s ETA 901s
+2026-04-29 14:43:42,492 - pipeline.embedding_generation - INFO - Auto embedding progress: 3712/22743 texts (16.4%) @ 22.2 texts/s ETA 856s
+2026-04-29 14:44:06,407 - pipeline.embedding_generation - INFO - Auto embedding progress: 4288/22743 texts (18.9%) @ 22.4 texts/s ETA 822s
+2026-04-29 14:44:27,226 - pipeline.embedding_generation - INFO - Auto embedding progress: 4784/22743 texts (21.1%) @ 22.6 texts/s ETA 795s
+2026-04-29 14:44:47,576 - pipeline.embedding_generation - INFO - Auto embedding progress: 5232/22743 texts (23.1%) @ 22.5 texts/s ETA 777s
+2026-04-29 14:45:07,995 - pipeline.embedding_generation - INFO - Auto embedding progress: 5728/22743 texts (25.2%) @ 22.7 texts/s ETA 750s
+2026-04-29 14:45:28,410 - pipeline.embedding_generation - INFO - Auto embedding progress: 6208/22743 texts (27.4%) @ 22.7 texts/s ETA 727s
+2026-04-29 14:45:48,685 - pipeline.embedding_generation - INFO - Auto embedding progress: 6720/22743 texts (29.6%) @ 22.9 texts/s ETA 699s
+2026-04-29 14:46:08,971 - pipeline.embedding_generation - INFO - Auto embedding progress: 7200/22743 texts (31.7%) @ 23.0 texts/s ETA 677s
+2026-04-29 14:46:29,749 - pipeline.embedding_generation - INFO - Auto embedding progress: 7648/22743 texts (33.7%) @ 22.9 texts/s ETA 660s
+2026-04-29 14:46:50,581 - pipeline.embedding_generation - INFO - Auto embedding progress: 8160/22743 texts (35.9%) @ 23.0 texts/s ETA 634s
+2026-04-29 14:47:10,849 - pipeline.embedding_generation - INFO - Auto embedding progress: 8608/22743 texts (37.9%) @ 22.9 texts/s ETA 616s
+2026-04-29 14:47:30,849 - pipeline.embedding_generation - INFO - Auto embedding progress: 9088/22743 texts (40.0%) @ 23.0 texts/s ETA 594s
+2026-04-29 14:47:51,014 - pipeline.embedding_generation - INFO - Auto embedding progress: 9776/22743 texts (43.0%) @ 23.5 texts/s ETA 551s
+2026-04-29 14:48:11,284 - pipeline.embedding_generation - INFO - Auto embedding progress: 10400/22743 texts (45.8%) @ 23.9 texts/s ETA 517s
+2026-04-29 14:48:31,544 - pipeline.embedding_generation - INFO - Auto embedding progress: 11008/22743 texts (48.5%) @ 24.1 texts/s ETA 486s
+2026-04-29 14:48:51,576 - pipeline.embedding_generation - INFO - Auto embedding progress: 11744/22743 texts (51.7%) @ 24.7 texts/s ETA 446s
+2026-04-29 14:49:12,086 - pipeline.embedding_generation - INFO - Auto embedding progress: 12128/22743 texts (53.4%) @ 24.4 texts/s ETA 434s
+2026-04-29 14:49:32,197 - pipeline.embedding_generation - INFO - Auto embedding progress: 12592/22743 texts (55.4%) @ 24.4 texts/s ETA 416s
+2026-04-29 14:49:52,960 - pipeline.embedding_generation - INFO - Auto embedding progress: 13056/22743 texts (57.5%) @ 24.3 texts/s ETA 398s
+2026-04-29 14:50:13,115 - pipeline.embedding_generation - INFO - Auto embedding progress: 13648/22743 texts (60.1%) @ 24.5 texts/s ETA 371s
+2026-04-29 14:50:33,213 - pipeline.embedding_generation - INFO - Auto embedding progress: 14160/22743 texts (62.3%) @ 24.5 texts/s ETA 350s
+2026-04-29 14:50:54,245 - pipeline.embedding_generation - INFO - Auto embedding progress: 14848/22743 texts (65.3%) @ 24.8 texts/s ETA 318s
+2026-04-29 14:51:14,341 - pipeline.embedding_generation - INFO - Auto embedding progress: 15280/22743 texts (67.2%) @ 24.7 texts/s ETA 302s
+2026-04-29 14:51:34,502 - pipeline.embedding_generation - INFO - Auto embedding progress: 15936/22743 texts (70.1%) @ 24.9 texts/s ETA 273s
+2026-04-29 14:51:55,549 - pipeline.embedding_generation - INFO - Auto embedding progress: 16448/22743 texts (72.4%) @ 24.9 texts/s ETA 252s
+2026-04-29 14:52:21,657 - pipeline.embedding_generation - INFO - Auto embedding progress: 16816/22743 texts (74.0%) @ 24.5 texts/s ETA 241s
+2026-04-29 14:52:41,942 - pipeline.embedding_generation - INFO - Auto embedding progress: 17152/22743 texts (75.5%) @ 24.3 texts/s ETA 230s
+2026-04-29 14:53:02,007 - pipeline.embedding_generation - INFO - Auto embedding progress: 17728/22743 texts (78.0%) @ 24.4 texts/s ETA 205s
+2026-04-29 14:53:25,176 - pipeline.embedding_generation - INFO - Auto embedding progress: 18128/22743 texts (79.7%) @ 24.2 texts/s ETA 190s
+2026-04-29 14:53:45,628 - pipeline.embedding_generation - INFO - Auto embedding progress: 18768/22743 texts (82.6%) @ 24.4 texts/s ETA 163s
+2026-04-29 14:54:08,030 - pipeline.embedding_generation - INFO - Auto embedding progress: 19376/22743 texts (85.2%) @ 24.4 texts/s ETA 137s
+2026-04-29 14:54:28,513 - pipeline.embedding_generation - INFO - Auto embedding progress: 19776/22743 texts (87.0%) @ 24.3 texts/s ETA 121s
+2026-04-29 14:54:48,736 - pipeline.embedding_generation - INFO - Auto embedding progress: 20256/22743 texts (89.1%) @ 24.3 texts/s ETA 102s
+2026-04-29 14:55:09,274 - pipeline.embedding_generation - INFO - Auto embedding progress: 20768/22743 texts (91.4%) @ 24.3 texts/s ETA 81s
+2026-04-29 14:55:29,385 - pipeline.embedding_generation - INFO - Auto embedding progress: 21248/22743 texts (93.5%) @ 24.3 texts/s ETA 61s
+2026-04-29 14:55:49,643 - pipeline.embedding_generation - INFO - Auto embedding progress: 21680/22743 texts (95.4%) @ 24.2 texts/s ETA 43s
+2026-04-29 14:56:09,831 - pipeline.embedding_generation - INFO - Auto embedding progress: 22224/22743 texts (97.7%) @ 24.3 texts/s ETA 21s
+2026-04-29 14:56:31,095 - pipeline.embedding_generation - INFO - Auto embedding progress: 22704/22743 texts (99.9%) @ 24.3 texts/s ETA 1s
+2026-04-29 14:56:33,097 - pipeline.embedding_generation - INFO - Generated embeddings shape: (22743, 768)
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO - STAGE RESULT (after stage 4:embed)
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO -   cde_df: cde_df.pkl
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO -   embeddings: embeddings.npy
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO -   stage_state: /app/results_webui/Heptfluq/stages/04_embed/stage_state.json
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO - Stage 5: Dimensionality reduction
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO - INVOCATION CALL (before stage 5:dr)
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:56:33,332 - pipeline.orchestration - INFO -   mode: cli
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -   call: (not provided by launcher)
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO - CALL PROVENANCE (from config; before stage body runs)
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -   • [orchestrator] pipeline/orchestration.py::CDEPipeline.run
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -       stage_key = dr
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -       stage_order = 5
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -   • [pipeline] pipeline/orchestration.py::CDEPipeline._stage_5_dimensionality_reduction
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -   • [pipeline] pipeline/dimensionality_reduction.py::reduce_dimensionality
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -       dr.method = umap
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -       dr.n_components = 50
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -       dr.planned_resolution_if_auto = boyan
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -       dr.provider_requested = boyan
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -       dr.random_state = 42
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -       note: Runtime may fall back (e.g. PACS/boyan unavailable, tsne n_components&gt;=4 -&gt; local exact).
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -   • [adapter] adapters/boyan_adapter.py::apply_dim_reduction
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO -   • [external_repo] boyan_peshlov_code/src/nih_cde_analysis/modeling/dim_reduction.py::apply_dim_reduction
+2026-04-29 14:56:33,333 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:56:33,334 - pipeline.dimensionality_reduction - INFO - Applying dimensionality reduction: provider=boyan, method=umap, n_components=50
+2026-04-29 14:56:33,334 - adapters.boyan_adapter - INFO - Applying dimensionality reduction via boyan_peshlov_code adapter
+2026-04-29 14:56:33,334 - nih_cde_analysis.modeling.dim_reduction - INFO - Dimensionality reduction: method=umap, n_components=50
+2026-04-29 14:56:33,529 - nih_cde_analysis.modeling.dim_reduction - INFO - UMAP params: n_neighbors=15, min_dist=0.1, spread=1.0, metric=cosine
+2026-04-29 14:57:23,203 - pipeline.dimensionality_reduction - INFO - Reduced embeddings shape: (22743, 50)
+2026-04-29 14:57:35,796 - pipeline.orchestration - INFO - Saved fitted DR model to dr_model.pkl (supports out-of-sample transform)
+2026-04-29 14:57:35,798 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO - STAGE RESULT (after stage 5:dr)
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO -   dr_model: dr_model.pkl
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO -   reduced_embeddings: reduced_embeddings.npy
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO -   stage_state: /app/results_webui/Heptfluq/stages/05_dr/stage_state.json
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO - Stage 6: Clustering
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO - INVOCATION CALL (before stage 6:cluster)
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO -   mode: cli
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO -   call: (not provided by launcher)
+2026-04-29 14:57:35,799 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO - CALL PROVENANCE (from config; before stage body runs)
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -   • [orchestrator] pipeline/orchestration.py::CDEPipeline.run
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -       stage_key = cluster
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -       stage_order = 6
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -   • [pipeline] pipeline/orchestration.py::CDEPipeline._stage_6_clustering
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -   • [pipeline] pipeline/clustering.py::apply_clustering_algorithm
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -       clustering.algorithm = hdbscan
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -       clustering.metric = cosine
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -       clustering.min_cluster_size = 15
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -       clustering.min_samples = 5
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -       clustering.planned_resolution_if_auto = boyan
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -       clustering.provider_requested = boyan
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -   • [adapter] adapters/boyan_adapter.py::apply_clustering
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO -   • [external_repo] boyan_peshlov_code/src/nih_cde_analysis/modeling/train.py::apply_clustering
+2026-04-29 14:57:35,800 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:35,801 - pipeline.clustering - INFO - Applying clustering: provider=boyan, algorithm=hdbscan
+2026-04-29 14:57:35,801 - pipeline.clustering - INFO - HDBSCAN parameters: min_cluster_size=15, min_samples=5, metric=cosine
+2026-04-29 14:57:35,803 - pipeline.clustering - INFO - Normalized embeddings for cosine in 0.00s
+2026-04-29 14:57:35,803 - adapters.boyan_adapter - INFO - Applying clustering via boyan_peshlov_code adapter
+2026-04-29 14:57:35,805 - adapters.boyan_adapter - INFO - Boyan clustering: normalized embeddings for cosine in 0.00s
+2026-04-29 14:57:35,806 - nih_cde_analysis.modeling.train - INFO - Clustering with HDBSCAN: min_cluster_size=15, min_samples=5, epsilon=0.0, cluster_selection_method=eom
+2026-04-29 14:57:48,940 - adapters.boyan_adapter - INFO - Boyan clustering finished: elapsed=13.13s
+2026-04-29 14:57:48,941 - pipeline.clustering - INFO - Clustering complete: 478 clusters, 4364 noise points
+2026-04-29 14:57:48,956 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:48,956 - pipeline.orchestration - INFO - STAGE RESULT (after stage 6:cluster)
+2026-04-29 14:57:48,956 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:48,956 - pipeline.orchestration - INFO -   cluster_labels: cluster_labels.npy
+2026-04-29 14:57:48,956 - pipeline.orchestration - INFO -   stage_state: /app/results_webui/Heptfluq/stages/06_cluster/stage_state.json
+2026-04-29 14:57:48,956 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:48,956 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO - Stage 7: Evaluation
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO - INVOCATION CALL (before stage 7:eval)
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -   mode: cli
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -   call: (not provided by launcher)
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO - CALL PROVENANCE (from config; before stage body runs)
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -   • [orchestrator] pipeline/orchestration.py::CDEPipeline.run
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -       stage_key = eval
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -       stage_order = 7
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -   • [pipeline] pipeline/orchestration.py::CDEPipeline._stage_7_evaluation
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -   • [pipeline] pipeline/evaluation.py::evaluate_clustering_results
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -       evaluation.beta = 1
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -       evaluation.compute_external = True
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -       evaluation.compute_internal = True
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -       evaluation.external_provider = auto
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -       evaluation.ground_truth_path = ground-truth/v2/curated_11domains_mapping.csv
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -   • [pipeline] pipeline/evaluation.py::_compute_internal_metrics
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -   • [adapter] adapters/boyan_adapter.py::evaluate_clustering
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -   • [external_repo] boyan_peshlov_code/src/nih_cde_analysis/modeling/train.py::evaluate_clustering
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -   • [pipeline] pipeline/evaluation.py::_compute_external_metrics
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO -   • [external] sklearn.metrics (NMI, ARI, V-measure, etc.) on domain labels
+2026-04-29 14:57:48,957 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:48,958 - pipeline.evaluation - INFO - Computing internal validation metrics on sample: 5000/22743
+2026-04-29 14:57:48,959 - adapters.boyan_adapter - INFO - Evaluating clustering via boyan_peshlov_code adapter
+2026-04-29 14:57:49,432 - pipeline.evaluation - INFO - Computing external validation metrics
+2026-04-29 14:57:49,433 - pipeline.evaluation - INFO - Loading ground truth from: ground-truth/v2/curated_11domains_mapping.csv
+2026-04-29 14:57:49,524 - pipeline.evaluation - INFO - External validation: ARI=0.001, AMI=0.058, V-measure=0.086
+2026-04-29 14:57:49,528 - pipeline.evaluation - INFO - Computed 13 evaluation metrics
+2026-04-29 14:57:50,048 - pipeline.orchestration - INFO - Exported Boyan CSV files: ['metrics', 'detailed_results']
+2026-04-29 14:57:50,051 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:50,051 - pipeline.orchestration - INFO - STAGE RESULT (after stage 7:eval)
+2026-04-29 14:57:50,051 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:50,051 - pipeline.orchestration - INFO -   detailed_results_csv: detailed_results_20260429_145749.csv
+2026-04-29 14:57:50,051 - pipeline.orchestration - INFO -   metrics: metrics.json
+2026-04-29 14:57:50,051 - pipeline.orchestration - INFO -   metrics_csv: metrics_20260429_145749.csv
+2026-04-29 14:57:50,051 - pipeline.orchestration - INFO -   stage_state: /app/results_webui/Heptfluq/stages/07_eval/stage_state.json
+2026-04-29 14:57:50,051 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO - Stage 8: Visualization + export
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO - ============================================================
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO - INVOCATION CALL (before stage 8:viz)
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -   mode: cli
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -   call: (not provided by launcher)
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO - CALL PROVENANCE (from config; before stage body runs)
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -   • [orchestrator] pipeline/orchestration.py::CDEPipeline.run
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -       stage_key = viz
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -       stage_order = 8
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -   • [pipeline] pipeline/orchestration.py::CDEPipeline._stage_8_visualization
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -   • [pipeline] pipeline/visualization.py::create_visualizations
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -   • [pipeline] pipeline/visualization.py::_create_clustering_plot
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -       visualization.planned_resolution_if_auto = boyan
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -       visualization.provider_requested = boyan
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -   • [adapter] adapters/boyan_plot_adapter.py::create_clustering_plot_boyan
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO -   • [external_repo] boyan_peshlov_code/src/nih_cde_analysis/plots.py::create_clustering_plot
+2026-04-29 14:57:50,052 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:57:50,956 - pipeline.visualization - INFO - Creating visualizations
+2026-04-29 14:57:50,956 - pipeline.visualization - INFO - Reducing embeddings to 2D for visualization
+2026-04-29 14:58:23,195 - pipeline.visualization - INFO - Saved clustering plot: /app/results_webui/Heptfluq/figures/clustering_plot.html
+2026-04-29 14:58:31,033 - pipeline.cluster_explorer - INFO - Saved Stage 8 cluster explorer HTML: /app/results_webui/Heptfluq/figures/cluster_explorer.html
+2026-04-29 14:58:31,034 - pipeline.cluster_explorer - INFO - Saved Stage 8 cluster explorer JSON contract: /app/results_webui/Heptfluq/figures/cluster_explorer_data.json
+2026-04-29 14:58:33,100 - pipeline.visualization - INFO - Saved metrics summary: /app/results_webui/Heptfluq/figures/metrics_summary.html
+2026-04-29 14:58:33,100 - pipeline.visualization - INFO - Created 6 visualizations
+2026-04-29 14:58:33,104 - pipeline.visualization - INFO - Exporting results
+2026-04-29 14:58:33,728 - pipeline.visualization - INFO - Exported CSV: /app/results_webui/Heptfluq/clustering_results.csv
+2026-04-29 14:58:34,001 - pipeline.visualization - INFO - Exported JSON: /app/results_webui/Heptfluq/clustering_results.json
+2026-04-29 14:58:34,001 - pipeline.visualization - INFO - Exported metrics: /app/results_webui/Heptfluq/metrics.json
+2026-04-29 14:58:34,012 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:58:34,012 - pipeline.orchestration - INFO - STAGE RESULT (after stage 8:viz)
+2026-04-29 14:58:34,012 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:58:34,012 - pipeline.orchestration - INFO -   linked_outputs: ["out__clustering_results.csv", "out__metrics.json", "out__clustering_results.json", "out__figures__enhanced_clustering_plot.html", "out__figures__clustering_plot.html", "out__figures__enhanced_legacy_plot.html", "out__figures__cluster_explorer_data.json", ...
+2026-04-29 14:58:34,012 - pipeline.orchestration - INFO -   outputs: outputs.json
+2026-04-29 14:58:34,012 - pipeline.orchestration - INFO -   stage_state: /app/results_webui/Heptfluq/stages/08_viz/stage_state.json
+2026-04-29 14:58:34,012 - pipeline.orchestration - INFO - ------------------------------------------------------------
+2026-04-29 14:58:34,020 - __main__ - INFO - Pipeline completed successfully
+2026-04-29 14:58:34,020 - __main__ - INFO - Runtime: 1159.05 seconds
+2026-04-29 14:58:34,020 - __main__ - INFO - Records processed: 22743
+</pre>
+            
+    </div>
+  
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;limited&quot;,&quot;isActive&quot;:false,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
